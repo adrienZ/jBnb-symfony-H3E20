@@ -28,8 +28,8 @@
       <file leaf-file-name="Rooms.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Rooms.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1230">
-              <caret line="84" column="19" lean-forward="false" selection-start-line="84" selection-start-column="12" selection-end-line="84" selection-end-column="19" />
+            <state relative-caret-position="510">
+              <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -161,12 +161,12 @@
       <updated>1486724401213</updated>
       <workItem from="1486724402780" duration="557000" />
       <workItem from="1486725455573" duration="259000" />
-      <workItem from="1487095277116" duration="337000" />
+      <workItem from="1487095277116" duration="668000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1153000" />
+    <option name="totallyTimeSpent" value="1484000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="838" extended-state="0" />
@@ -220,8 +220,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Entity/Rooms.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="84" column="19" lean-forward="false" selection-start-line="84" selection-start-column="12" selection-end-line="84" selection-end-column="19" />
+        <state relative-caret-position="510">
+          <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
       </provider>
