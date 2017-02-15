@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Devise
+ * Currency
  *
- * @ORM\Table(name="devise")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\DeviseRepository")
+ * @ORM\Table(name="currency")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\CurrencyRepository")
  */
-class Devise
+class Currency
 {
     /**
      * @var int
@@ -44,7 +44,7 @@ class Devise
      *
      * @param string $name
      *
-     * @return Devise
+     * @return Currency
      */
     public function setName($name)
     {
@@ -63,4 +63,3 @@ class Devise
         return $this->name;
     }
 }
-
