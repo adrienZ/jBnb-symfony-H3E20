@@ -15,7 +15,18 @@ coming soon...
 - Ulysse Tallepied  -- [@ulysset](https://github.com/ulysset)
 - Adrien Zaganelli -- [@adrienZ](https://github.com/adrienZ)
 
+### Exigences techniques
+- [x] Symfony 3.2+
+- [ ] PSR-2
+- [ ] GitHub privé
+- [ ] Tests unitaires PHPUnit  https://symfony.com/doc/current/testing.html
+- [ ] Documentation détaillée (PhpDoc et ApiDoc)
 
+### Exigences fonctionnelles
+- [ ] Offrir des services novateurs
+- [ ] Stocker et restituer des données saisies par les utilisateurs
+- [ ] Back office de gestion du site
+- [ ] Dashboard d'indicateurs dans le back office
 
 
 Symfony Standard Edition
