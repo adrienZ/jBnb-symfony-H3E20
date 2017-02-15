@@ -1,3 +1,8 @@
+j_bnb_api:
+    resource: "@jBnbApiBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
