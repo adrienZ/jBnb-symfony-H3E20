@@ -14,10 +14,21 @@ class RoomsController extends Controller
 {
     /**
      * @Route("/{id}")
-     * @Method({"GET","HEAD"})
+     * @Method({"GET"})
      */
-    public function showByIdAction(Rooms $rooms)
+    public function showByIdAction(Rooms $room)
     {
-        return new Response(json_encode($rooms));
+        return new Response(json_encode([
+            "id"=> $room->getId(),
+            "title"=> $room->getTitle(),
+            "LDK"=> $room->getLDK(),
+            "host_id"=> $room->getHostId(),
+            "localisation"=> $room->getLocalisation(),
+            "price"=> $room->getPrice(),
+            "surface"=> $room->getSurface(),
+            "type_id"=> $room->getTypeId(),
+            "statut"=> $room->getStatut(),
+            "devise_id"=> $room->getDeviseId(),
+        ]));
     }
 }
