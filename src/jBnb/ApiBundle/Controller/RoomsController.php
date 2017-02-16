@@ -15,6 +15,8 @@ class RoomsController extends Controller
     /**
      * @Route("/{id}")
      * @Method({"GET"})
+     *
+     * @return string
      */
     public function showByIdAction(Rooms $room)
     {
