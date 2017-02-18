@@ -2,11 +2,13 @@
 
 namespace AppBundle\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Rooms
- *
+ * @ApiResource
+ * @ORM\Entity
  * @ORM\Table(name="rooms")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\RoomsRepository")
  */
@@ -17,6 +19,7 @@ class Rooms
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
+     * @var string The title of this book.
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
@@ -373,4 +376,3 @@ class Rooms
         return $this->deviseId;
     }
 }
-
