@@ -13,6 +13,59 @@ use Symfony\Component\HttpFoundation\Response;
 class RoomsController extends Controller
 {
     /**
+     * @Route("/")
+     * @Method({"GET"})
+     *
+     * @return string
+     */
+    public function showAction()
+    {
+         // Get entity manager
+         $em = $this->getDoctrine()->getManager();
+
+        // if no filters return all
+        if(!empty($_GET)) {
+          $filters = $_GET['filters'];
+          $filters = (array) json_decode($filters);
+
+          $response = $em->getRepository('AppBundle:Rooms')
+          ->findBy( $filters)
+          ;
+        }
+        else
+          $response = $em->getRepository('AppBundle:Rooms')
+          ->findAll()
+          ;
+
+
+
+        // no data
+        if(!isset($response)){
+          return new Response(json_encode([
+            "empty" => true
+          ]));
+        }
+
+        // return private data of Rooms Entity
+        $rooms = [];
+        foreach ($response as $room){
+            $rooms[] = [
+                "id"=> $room->getId(),
+                "title"=> $room->getTitle(),
+                "LDK"=> $room->getLDK(),
+                "host_id"=> $room->getHostId(),
+                "localisation"=> $room->getLocalisation(),
+                "price"=> $room->getPrice(),
+                "surface"=> $room->getSurface(),
+                "type_id"=> $room->getTypeId(),
+                "statut"=> $room->getStatut(),
+                "devise_id"=> $room->getDeviseId(),
+            ];
+        }
+        return new Response(json_encode($rooms));
+    }
+
+    /**
      * @Route("/{id}")
      * @Method({"GET"})
      *
