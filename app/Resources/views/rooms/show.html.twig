@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Room</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ room.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ room.title }}</td>
+            </tr>
+            <tr>
+                <th>Ldk</th>
+                <td>{{ room.lDK }}</td>
+            </tr>
+            <tr>
+                <th>Hostid</th>
+                <td>{{ room.hostId }}</td>
+            </tr>
+            <tr>
+                <th>Localisation</th>
+                <td>{{ room.localisation }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ room.price }}</td>
+            </tr>
+            <tr>
+                <th>Surface</th>
+                <td>{{ room.surface }}</td>
+            </tr>
+            <tr>
+                <th>Equipements</th>
+                <td>{{ room.equipements }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ room.description }}</td>
+            </tr>
+            <tr>
+                <th>Typeid</th>
+                <td>{{ room.typeId }}</td>
+            </tr>
+            <tr>
+                <th>Statut</th>
+                <td>{% if room.statut %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Deviseid</th>
+                <td>{{ room.deviseId }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('rooms_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('rooms_edit', { 'id': room.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

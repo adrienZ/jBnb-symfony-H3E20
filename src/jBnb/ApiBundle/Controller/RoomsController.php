@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Response;
+
 /**
  * @Route("/rooms")
  */
@@ -28,19 +29,19 @@ class RoomsController extends Controller
           $filters = $_GET['filters'];
           $filters = (array) json_decode($filters);
 
-          $response = $em->getRepository('AppBundle:Rooms')
+          $request = $em->getRepository('AppBundle:Rooms')
           ->findBy( $filters)
           ;
         }
         else
-          $response = $em->getRepository('AppBundle:Rooms')
+          $request = $em->getRepository('AppBundle:Rooms')
           ->findAll()
           ;
 
 
 
         // no data
-        if(!isset($response)){
+        if(!isset($request)){
           return new Response(json_encode([
             "empty" => true
           ]));
@@ -48,7 +49,7 @@ class RoomsController extends Controller
 
         // return private data of Rooms Entity
         $rooms = [];
-        foreach ($response as $room){
+        foreach ($request as $room){
             $rooms[] = [
                 "id"=> $room->getId(),
                 "title"=> $room->getTitle(),
@@ -63,6 +64,7 @@ class RoomsController extends Controller
             ];
         }
         return new Response(json_encode($rooms));
+
     }
 
     /**
