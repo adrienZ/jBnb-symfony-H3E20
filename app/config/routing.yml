@@ -1,3 +1,12 @@
+app_rooms:
+    resource: "@AppBundle/Controller/RoomsController.php"
+    type:     annotation
+
+j_bnb_api:
+    resource: "@jBnbApiBundle/Controller/"
+    type:     annotation
+    prefix:   /api
+
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
