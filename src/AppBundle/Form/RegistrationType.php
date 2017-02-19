@@ -7,6 +7,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class RegistrationType extends AbstractType
 {
@@ -27,6 +28,17 @@ class RegistrationType extends AbstractType
         );
         $builder->add('genderId');
         $builder->add('deviseId');
+
+
+        // default values
+        $builder->add('isHost', HiddenType::class, array(
+          'required' => true,
+          'data' => 0,
+        ));
+        $builder->add('paypalAccount', HiddenType::class, array(
+          'required' => true,
+          'data' => 'moneyIsSoFunny',
+        ));
     }
 
     public function getParent()
