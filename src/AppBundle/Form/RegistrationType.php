@@ -13,8 +13,15 @@ class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        // TODO: Redirection if user is already logged
+        // return $this->redirectToRoute('homepage');
+
         $currentYear = (integer)date("Y");
 
+        $builder->add('email');
+        $builder->add('username');
+        $builder->add('plainPassword', NULL);
+        $builder->add('email');
         $builder->add('firstname');
         $builder->add('lastname');
         $builder->add('location');
