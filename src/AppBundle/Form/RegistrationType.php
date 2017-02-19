@@ -7,13 +7,21 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 
 class RegistrationType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        // TODO: Redirection if user is already logged
+        // return $this->redirectToRoute('homepage');
+
         $currentYear = (integer)date("Y");
 
+        $builder->add('email');
+        $builder->add('username');
+        $builder->add('plainPassword', NULL);
+        $builder->add('email');
         $builder->add('firstname');
         $builder->add('lastname');
         $builder->add('location');
@@ -27,6 +35,17 @@ class RegistrationType extends AbstractType
         );
         $builder->add('genderId');
         $builder->add('deviseId');
+
+
+        // default values
+        $builder->add('isHost', HiddenType::class, array(
+          'required' => true,
+          'data' => 0,
+        ));
+        $builder->add('paypalAccount', HiddenType::class, array(
+          'required' => true,
+          'data' => 'moneyIsSoFunny',
+        ));
     }
 
     public function getParent()
