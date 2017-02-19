@@ -21,30 +21,73 @@ class RoomsController extends Controller
      */
     public function showAction()
     {
-         // Get entity manager
-         $em = $this->getDoctrine()->getManager();
+        $erros = [];
 
-        // if no filters return all
-        if(!empty($_GET)) {
-          $filters = $_GET['filters'];
-          $filters = (array) json_decode($filters);
+        // Get entity manager && create the SQL query
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Rooms');
 
-          $request = $em->getRepository('AppBundle:Rooms')
-          ->findBy( $filters)
-          ;
+        // createQueryBuilder() automatically selects FROM AppBundle:Rooms
+        // and aliases it to "r"
+        $query = $repository->createQueryBuilder('r');
+
+        // filters send in url as stringiyfied object
+        $filters = (isset($_GET["filters"])) ? $_GET['filters'] : "{}";
+        $filters = (array) json_decode($filters);
+
+        // FILTER BY PRICE
+        if( isset($filters['price'])){
+
+            $price = $filters['price'];
+
+            // check that there is to arguments
+            if(count($price) !== 2 ) {
+                $erros["priceMissingArguments"] = 'The price must be an array of 2 arguments';
+                return new Response(json_encode([ "errors" => $erros]));
+            }
+
+            // argument 1 is valid
+            if (isset($price[0]) && is_integer($price[0]) && $price[0] >= 0){
+              $query->where('r.price >= ' . $price[0]);
+            }
+            else {
+                $erros["priceMinim"] = 'The minimum price must be a positive numeric';
+                return new Response(json_encode([ "errors" => $erros]));
+            }
+
+            // argument 2 is valid
+            if (isset($price[1]) && is_integer($price[1])){
+                $query->where('r.price <= ' . $price[1]);
+            }
+            else {
+              $erros["priceMinim"] = 'The maximum price must be a positive numeric';
+              return new Response(json_encode([ "errors" => $erros]));
+            }
+
+            // arguments are logic
+            if( $price[0] > $price[1]){
+                $erros["priceLogic"] = 'The minimum price must lower than the maximum';
+                return new Response(json_encode([ "errors" => $erros]));
+            }
         }
-        else
-          $request = $em->getRepository('AppBundle:Rooms')
-          ->findAll()
-          ;
 
 
+        else {
+            $erros["parseError"] = "Parse error at price key";
+            return new Response(json_encode([ "errors" => $erros]));
+        }
+
+
+        // default limit
+        !isset($filters['limit']) && $filters['limit'] = 5;
+        $query->setMaxResults( $filters['limit'] );
+
+        echo "<pre>"; print_r($filters); echo "</pre>";
+        $request =  $query->getQuery()->getResult();
 
         // no data
-        if(!isset($request)){
-          return new Response(json_encode([
-            "empty" => true
-          ]));
+        if((count($request) === 0)) {
+          $erros["noResult"] = "no results";
+          return new Response(json_encode([ "errors" => $erros]));
         }
 
         // return private data of Rooms Entity
