@@ -80,6 +80,8 @@ class RoomsController extends Controller
         // default limit
         !isset($filters['limit']) && $filters['limit'] = 5;
         $query->setMaxResults( $filters['limit'] );
+        // the room has been set visible by the host
+        $query->where('r.statut = 1');
 
         echo "<pre>"; print_r($filters); echo "</pre>";
         $request =  $query->getQuery()->getResult();
