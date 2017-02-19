@@ -62,9 +62,8 @@ class User extends BaseUser
     protected $dateOfBirth;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="gender_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="Gender", inversedBy="users")
+     * @ORM\JoinColumn(name="gender_id", referencedColumnName="id")
      */
     protected $genderId;
 
