@@ -3,10 +3,11 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Rooms
- *
+ * @ApiResource
  * @ORM\Table(name="rooms")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\RoomsRepository")
  */
@@ -373,4 +374,3 @@ class Rooms
         return $this->deviseId;
     }
 }
-
