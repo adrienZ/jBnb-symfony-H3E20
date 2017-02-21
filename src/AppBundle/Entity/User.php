@@ -33,7 +33,7 @@ class User extends BaseUser
      *
      * @ORM\Column(name="firstname", type="string", length=255)
      */
-    protected $firstname;
+    private $firstname;
 
     /**
      * @var string
@@ -48,41 +48,42 @@ class User extends BaseUser
      *     groups={"Registration", "Profile"}
      * )
      */
-    protected $lastname;
+    private $lastname;
 
     /**
      * @var string
      *
      * @ORM\Column(name="location", type="string", length=255)
      */
-    protected $location;
+    private $location;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateOfBirth", type="date")
      */
-    protected $dateOfBirth;
+    private $dateOfBirth;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Gender", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="Gender", cascade={"all"}, fetch="EAGER")
      * @ORM\JoinColumn(name="gender_id", referencedColumnName="id")
      */
-    protected $genderId;
+    private $genderId;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="devise_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="Currency", cascade={"all"}, fetch="EAGER")
+     * @ORM\JoinColumn(name="devise_id", referencedColumnName="id")
      */
-    protected $deviseId;
+    private $deviseId;
 
     /**
      * @var string
      *
      * @ORM\Column(name="paypal_account", type="string", length=255)
      */
-    protected $paypalAccount;
+    private $paypalAccount;
 
     /**
      * @var bool
