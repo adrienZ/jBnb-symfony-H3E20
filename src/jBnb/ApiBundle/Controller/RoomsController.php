@@ -113,13 +113,29 @@ class RoomsController extends Controller
     }
 
     /**
-     * @Route("/{id}")
+     * @Route("/{roomId}")
      * @Method({"GET"})
-     *
+     * @param int
      * @return string
      */
-    public function showByIdAction(Rooms $room)
+    public function showByIdAction(int $roomId)
     {
+        $erros = [];
+
+        // find room by id with the RoomsRepository
+        $em = $this->getDoctrine()->getManager();
+        $room = $this->getDoctrine()
+             ->getRepository('AppBundle:Rooms')
+             ->find($roomId);
+
+        // if no rooms
+        if(!isset($room)) {
+            $erros["noResult"] = "no result found for id : " . $roomId;
+
+            return new Response(json_encode([ "errors" => $erros]));
+        }
+
+
         return new Response(json_encode([
             "id"=> $room->getId(),
             "title"=> $room->getTitle(),
