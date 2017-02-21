@@ -38,7 +38,6 @@ class Rooms
 
     /**
      * @ORM\ManyToOne(targetEntity="User", cascade={"all"}, fetch="EAGER")
-     * @ORM\JoinColumn(name="host_id", referencedColumnName="id")
      */
     private $host;
 
@@ -88,7 +87,6 @@ class Rooms
 
     /**
      * @ORM\ManyToOne(targetEntity="RoomsType", cascade={"all"}, fetch="EAGER")
-     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      */
     private $type;
 
@@ -101,13 +99,6 @@ class Rooms
     }
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="type_id", type="integer")
-     */
-     // private $typeId;
-
-    /**
      * @var bool
      *
      * @ORM\Column(name="statut", type="boolean")
@@ -116,16 +107,9 @@ class Rooms
 
     /**
      * @ORM\ManyToOne(targetEntity="Currency", cascade={"all"}, fetch="EAGER")
-     * @ORM\JoinColumn(name="devise_id", referencedColumnName="id")
      */
     private $currency;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="devise_id", type="integer")
-     */
-     // private $deviseId;
 
     /**
      * Get id
@@ -186,33 +170,9 @@ class Rooms
     }
 
     /**
-     * Set hostId
-     *
-     * @param integer $hostId
-     *
-     * @return Rooms
-     */
-    public function setHostId($hostId)
-    {
-        $this->hostId = $hostId;
-
-        return $this;
-    }
-
-    /**
-     * Get hostId
-     *
-     * @return int
-     */
-    public function getHostId()
-    {
-        return $this->hostId;
-    }
-
-    /**
      * Set host
      *
-     * @param string $host
+     * @param int $host
      */
     public function setHost($host)
     {
@@ -375,30 +335,6 @@ class Rooms
     }
 
     /**
-     * Set typeId
-     *
-     * @param integer $typeId
-     *
-     * @return Rooms
-     */
-    public function setTypeId($typeId)
-    {
-        $this->typeId = $typeId;
-
-        return $this;
-    }
-
-    /**
-     * Get typeId
-     *
-     * @return int
-     */
-    public function getTypeId()
-    {
-        return $this->typeId;
-    }
-
-    /**
      * Set statut
      *
      * @param boolean $statut
@@ -422,29 +358,6 @@ class Rooms
         return $this->statut;
     }
 
-    /**
-     * Set deviseId
-     *
-     * @param integer $deviseId
-     *
-     * @return Rooms
-     */
-    public function setDeviseId($deviseId)
-    {
-        $this->deviseId = $deviseId;
-
-        return $this;
-    }
-
-    /**
-     * Get deviseId
-     *
-     * @return int
-     */
-    public function getDeviseId()
-    {
-        return $this->deviseId;
-    }
 
     /**
      * Get curreny

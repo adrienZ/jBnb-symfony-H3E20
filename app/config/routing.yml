@@ -9,7 +9,7 @@ j_bnb_api:
 api:
     resource: '.'
     type:     'api_platform'
-    prefix:   '/api'
+    prefix:   '/apii'
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
