@@ -3,7 +3,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Gender
@@ -13,16 +12,6 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Gender
 {
-
-    /**
-     * @ORM\OneToMany(targetEntity="User", mappedBy="gender_id")
-     */
-    private $users;
-
-    public function __construct()
-    {
-        $this->users = new ArrayCollection();
-    }
 
     /**
      * @var int
