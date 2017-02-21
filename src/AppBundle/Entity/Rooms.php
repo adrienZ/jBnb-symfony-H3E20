@@ -37,10 +37,17 @@ class Rooms
     private $lDK;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="host_id", type="integer")
+     */
+    private $hostId;
+
+    /**
      * @ORM\ManyToOne(targetEntity="User", cascade={"all"}, fetch="EAGER")
      * @ORM\JoinColumn(name="host_id", referencedColumnName="id")
      */
-    private $hostId;
+    private $host;
 
     /**
      * @var string
@@ -81,7 +88,22 @@ class Rooms
      * @ORM\ManyToOne(targetEntity="RoomsType", cascade={"all"}, fetch="EAGER")
      * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      */
-    private $typeId;
+    private $type;
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="type_id", type="integer")
+     */
+     private $typeId;
 
     /**
      * @var bool
@@ -94,7 +116,14 @@ class Rooms
      * @ORM\ManyToOne(targetEntity="Currency", cascade={"all"}, fetch="EAGER")
      * @ORM\JoinColumn(name="devise_id", referencedColumnName="id")
      */
-    private $deviseId;
+    private $currency;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="devise_id", type="integer")
+     */
+     private $deviseId;
 
 
     /**
@@ -102,7 +131,48 @@ class Rooms
      * @ORM\ManyToOne(targetEntity="Gender", inversedBy="users")
      * @ORM\JoinColumn(name="gender_id", referencedColumnName="id")
      */
-    protected $genderId;
+     private $gender;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="gender_id", type="integer")
+     */
+     private $genderId;
+
+    /**
+     * @return mixed
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * @param mixed $gender
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+    }
+
+    /**
+     * @return int
+     */
+    public function getGenderId()
+    {
+        return $this->genderId;
+    }
+
+    /**
+     * @param int $genderId
+     */
+    public function setGenderId($genderId)
+    {
+        $this->genderId = $genderId;
+    }
+
+
 
     /**
      * Get id
@@ -184,6 +254,15 @@ class Rooms
     public function getHostId()
     {
         return $this->hostId;
+    }
+
+    /**
+     * Get host
+     *
+     */
+    public function getHost()
+    {
+        return $this->host;
     }
 
     /**
@@ -376,5 +455,14 @@ class Rooms
     public function getDeviseId()
     {
         return $this->deviseId;
+    }
+
+    /**
+     * Get curreny
+     *
+     */
+    public function getCurrency()
+    {
+        return $this->currency;
     }
 }

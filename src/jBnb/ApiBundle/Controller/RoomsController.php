@@ -71,19 +71,13 @@ class RoomsController extends Controller
         }
 
 
-        else {
-            $erros["parseError"] = "Parse error at price key";
-            return new Response(json_encode([ "errors" => $erros]));
-        }
-
-
         // default limit
         !isset($filters['limit']) && $filters['limit'] = 5;
         $query->setMaxResults( $filters['limit'] );
         // the room has been set visible by the host
         $query->where('r.statut = 1');
 
-        echo "<pre>"; print_r($filters); echo "</pre>";
+        //echo "<pre>"; print_r($filters); echo "</pre>";
         $request =  $query->getQuery()->getResult();
 
         // no data
@@ -99,13 +93,23 @@ class RoomsController extends Controller
                 "id"=> $room->getId(),
                 "title"=> $room->getTitle(),
                 "LDK"=> $room->getLDK(),
-                "host_id"=> $room->getHostId(),
+                "host"=> [
+                  "id" => $room->getHost()->getid(),
+                  "firstname" => $room->getHost()->getFirstname(),
+                  "lasttname" => $room->getHost()->getLastname(),
+                ],
                 "localisation"=> $room->getLocalisation(),
                 "price"=> $room->getPrice(),
                 "surface"=> $room->getSurface(),
-                "type_id"=> $room->getTypeId(),
+                "type"=> [
+                  "id" => $room->getType()->getid(),
+                  "name" => $room->getType()->getName(),
+                ],
                 "statut"=> $room->getStatut(),
-                "devise_id"=> $room->getDeviseId(),
+                "currency"=> [
+                  "id" => $room->getCurrency()->getid(),
+                  "name" => $room->getCurrency()->getName(),
+                ]
             ];
         }
         return new Response(json_encode($rooms));
