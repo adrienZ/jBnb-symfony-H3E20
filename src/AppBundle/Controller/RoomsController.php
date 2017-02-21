@@ -1,136 +1,166 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace jBnb\ApiBundle\Controller;
 
 use AppBundle\Entity\Rooms;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
- * Room controller.
- *
- * @Route("rooms")
+ * @Route("/rooms")
  */
 class RoomsController extends Controller
 {
     /**
-     * Lists all room entities.
+     * @Route("/")
+     * @Method({"GET"})
      *
-     * @Route("/", name="rooms_index")
-     * @Method("GET")
+     * @return string
      */
-    public function indexAction()
+    public function showAction()
     {
+        $erros = [];
+
+        // Get entity manager && create the SQL query
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Rooms');
+
+        // createQueryBuilder() automatically selects FROM AppBundle:Rooms
+        // and aliases it to "r"
+        $query = $repository->createQueryBuilder('r');
+
+        // filters send in url as stringiyfied object
+        $filters = (isset($_GET["filters"])) ? $_GET['filters'] : "{}";
+        $filters = (array) json_decode($filters);
+
+        // FILTER BY PRICE
+        if( isset($filters['price'])){
+
+            $price = $filters['price'];
+
+            // check that there is to arguments
+            if(count($price) !== 2 ) {
+                $erros["priceMissingArguments"] = 'The price must be an array of 2 arguments';
+                return new Response(json_encode([ "errors" => $erros]));
+            }
+
+            // argument 1 is valid
+            if (isset($price[0]) && is_integer($price[0]) && $price[0] >= 0){
+              $query->where('r.price >= ' . $price[0]);
+            }
+            else {
+                $erros["priceMinim"] = 'The minimum price must be a positive numeric';
+                return new Response(json_encode([ "errors" => $erros]));
+            }
+
+            // argument 2 is valid
+            if (isset($price[1]) && is_integer($price[1])){
+                $query->where('r.price <= ' . $price[1]);
+            }
+            else {
+              $erros["priceMinim"] = 'The maximum price must be a positive numeric';
+              return new Response(json_encode([ "errors" => $erros]));
+            }
+
+            // arguments are logic
+            if( $price[0] > $price[1]){
+                $erros["priceLogic"] = 'The minimum price must lower than the maximum';
+                return new Response(json_encode([ "errors" => $erros]));
+            }
+        }
+
+
+        // default limit
+        !isset($filters['limit']) && $filters['limit'] = 5;
+        $query->setMaxResults( $filters['limit'] );
+        // the room has been set visible by the host
+        $query->where('r.statut = 1');
+
+        // echo "<pre>"; print_r($filters); echo "</pre>";
+        $request =  $query->getQuery()->getResult();
+
+        // no data
+        if((count($request) === 0)) {
+          $erros["noResult"] = "no results";
+          return new Response(json_encode([ "errors" => $erros]));
+        }
+
+        // return private data of Rooms Entity
+        $rooms = [];
+        foreach ($request as $room){
+              $rooms[] = [
+                "id"=> $room->getId(),
+                "title"=> $room->getTitle(),
+                "LDK"=> $room->getLDK(),
+                "host"=> [
+                  "id" => $room->getHostId()->getId(),
+                  "firstname" => $room->getHostId()->getFirstname(),
+                  "lastname" => $room->getHostId()->getLastname(),
+                ],
+                "localisation"=> $room->getLocalisation(),
+                "price"=> $room->getPrice(),
+                "surface"=> $room->getSurface(),
+                "type"=> [
+                  "id" => $room->getTypeId()->getid(),
+                  "name" => $room->getTypeId()->getName(),
+                ],
+                "statut"=> $room->getStatut(),
+                "currency"=> [
+                  "id" => $room->getDeviseId()->getId(),
+                  "name" => $room->getDeviseId()->getName(),
+                ]
+            ];
+        }
+        return new Response(json_encode($rooms));
+
+    }
+
+    /**
+     * @Route("/{roomId}")
+     * @Method({"GET"})
+     * @param int
+     * @return string
+     */
+    public function showByIdAction(int $roomId)
+    {
+        $erros = [];
+
+        // find room by id with the RoomsRepository
         $em = $this->getDoctrine()->getManager();
+        $room = $this->getDoctrine()
+             ->getRepository('AppBundle:Rooms')
+             ->find($roomId);
 
-        $rooms = $em->getRepository('AppBundle:Rooms')->findAll();
+        // if no rooms
+        if(!isset($room)) {
+            $erros["noResult"] = "no result found for id : " . $roomId;
 
-        return $this->render('rooms/index.html.twig', array(
-            'rooms' => $rooms,
-        ));
-    }
-
-    /**
-     * Creates a new room entity.
-     *
-     * @Route("/new", name="rooms_new")
-     * @Method({"GET", "POST"})
-     */
-    public function newAction(Request $request)
-    {
-        $room = new Rooms();
-        $form = $this->createForm('AppBundle\Form\RoomsType', $room);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($room);
-            $em->flush($room);
-
-            return $this->redirectToRoute('rooms_show', array('id' => $room->getId()));
+            return new Response(json_encode([ "errors" => $erros]));
         }
 
-        return $this->render('rooms/new.html.twig', array(
-            'room' => $room,
-            'form' => $form->createView(),
-        ));
-    }
 
-    /**
-     * Finds and displays a room entity.
-     *
-     * @Route("/{id}", name="rooms_show")
-     * @Method("GET")
-     */
-    public function showAction(Rooms $room)
-    {
-        $deleteForm = $this->createDeleteForm($room);
-
-        return $this->render('rooms/show.html.twig', array(
-            'room' => $room,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Displays a form to edit an existing room entity.
-     *
-     * @Route("/{id}/edit", name="rooms_edit")
-     * @Method({"GET", "POST"})
-     */
-    public function editAction(Request $request, Rooms $room)
-    {
-        $deleteForm = $this->createDeleteForm($room);
-        $editForm = $this->createForm('AppBundle\Form\RoomsType', $room);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('rooms_edit', array('id' => $room->getId()));
-        }
-
-        return $this->render('rooms/edit.html.twig', array(
-            'room' => $room,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Deletes a room entity.
-     *
-     * @Route("/{id}", name="rooms_delete")
-     * @Method("DELETE")
-     */
-    public function deleteAction(Request $request, Rooms $room)
-    {
-        $form = $this->createDeleteForm($room);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($room);
-            $em->flush($room);
-        }
-
-        return $this->redirectToRoute('rooms_index');
-    }
-
-    /**
-     * Creates a form to delete a room entity.
-     *
-     * @param Rooms $room The room entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(Rooms $room)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('rooms_delete', array('id' => $room->getId())))
-            ->setMethod('DELETE')
-            ->getForm()
-        ;
+        return new Response(json_encode([
+            "id"=> $room->getId(),
+            "title"=> $room->getTitle(),
+            "LDK"=> $room->getLDK(),
+            "host"=> [
+              "id" => $room->getHostId()->getId(),
+              "firstname" => $room->getHostId()->getFirstname(),
+              "lastname" => $room->getHostId()->getLastname(),
+            ],
+            "localisation"=> $room->getLocalisation(),
+            "price"=> $room->getPrice(),
+            "surface"=> $room->getSurface(),
+            "type"=> [
+              "id" => $room->getTypeId()->getid(),
+              "name" => $room->getTypeId()->getName(),
+            ],
+            "statut"=> $room->getStatut(),
+            "currency"=> [
+              "id" => $room->getDeviseId()->getId(),
+              "name" => $room->getDeviseId()->getName(),
+            ]
+        ]));
     }
 }
