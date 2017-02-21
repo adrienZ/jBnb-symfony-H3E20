@@ -11,6 +11,7 @@ parameters:
 framework:
     #esi:             ~
     #translator:      { fallbacks: ["%locale%"] }
+    translator: { fallbacks: [en] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -82,3 +83,16 @@ fos_user:
             type: AppBundle\Form\RegistrationType
                 # if you are using Symfony < 2.8 you should use the type name instead
                 # type: app_user_registration
+
+#Translator service
+
+
+
+
+#BlockBundle existence
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts: [admin]
