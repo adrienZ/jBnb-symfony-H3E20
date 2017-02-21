@@ -37,9 +37,8 @@ class Rooms
     private $lDK;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="host_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="User", cascade={"all"}, fetch="EAGER")
+     * @ORM\JoinColumn(name="host_id", referencedColumnName="id")
      */
     private $hostId;
 
@@ -79,9 +78,8 @@ class Rooms
     private $description;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="type_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="RoomsType", cascade={"all"}, fetch="EAGER")
+     * @ORM\JoinColumn(name="type_id", referencedColumnName="id")
      */
     private $typeId;
 
@@ -93,12 +91,18 @@ class Rooms
     private $statut;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="devise_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="Currency", cascade={"all"}, fetch="EAGER")
+     * @ORM\JoinColumn(name="devise_id", referencedColumnName="id")
      */
     private $deviseId;
 
+
+    /**
+     *
+     * @ORM\ManyToOne(targetEntity="Gender", inversedBy="users")
+     * @ORM\JoinColumn(name="gender_id", referencedColumnName="id")
+     */
+    protected $genderId;
 
     /**
      * Get id
