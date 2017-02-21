@@ -5,17 +5,39 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Desk
+ * BlogPost
  *
- * @ORM\Table(name="desk")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\DeskRepository")
+ * @ORM\Table(name="blog_post")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogPostRepository")
  */
-class Desk
+class BlogPost
 {
+
   /**
-  * @ORM\OneToMany(targetEntity="DeskComment", mappedBy="desk", cascade={"remove", "persist"})
-  */
-  protected $comments;
+   * @ORM\ManyToOne(targetEntity="Category", inversedBy="blogPosts")
+   */
+  private $category;
+
+  public function setCategory(Category $category)
+  {
+      $this->category = $category;
+  }
+
+  public function getCategory()
+  {
+      return $this->category;
+  }
+
+  /**
+   * @var bool
+   *
+   * @ORM\Column(name="draft", type="boolean")
+   */
+  private $draft = false;
+
+  // ...
+
+
     /**
      * @var int
      *
@@ -35,16 +57,11 @@ class Desk
     /**
      * @var string
      *
-     * @ORM\Column(name="summary", type="string", length=255)
+     * @ORM\Column(name="body", type="text")
      */
-    private $summary;
+    private $body;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=255)
-     */
-    private $description;
+    
 
 
     /**
@@ -62,7 +79,7 @@ class Desk
      *
      * @param string $title
      *
-     * @return Desk
+     * @return BlogPost
      */
     public function setTitle($title)
     {
@@ -82,50 +99,50 @@ class Desk
     }
 
     /**
-     * Set summary
+     * Set body
      *
-     * @param string $summary
+     * @param string $body
      *
-     * @return Desk
+     * @return BlogPost
      */
-    public function setSummary($summary)
+    public function setBody($body)
     {
-        $this->summary = $summary;
+        $this->body = $body;
 
         return $this;
     }
 
     /**
-     * Get summary
+     * Get body
      *
      * @return string
      */
-    public function getSummary()
+    public function getBody()
     {
-        return $this->summary;
+        return $this->body;
     }
 
     /**
-     * Set description
+     * Set draft
      *
-     * @param string $description
+     * @param boolean $draft
      *
-     * @return Desk
+     * @return BlogPost
      */
-    public function setDescription($description)
+    public function setDraft($draft)
     {
-        $this->description = $description;
+        $this->draft = $draft;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get draft
      *
-     * @return string
+     * @return bool
      */
-    public function getDescription()
+    public function getDraft()
     {
-        return $this->description;
+        return $this->draft;
     }
 }
