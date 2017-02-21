@@ -9,15 +9,12 @@
                 <th>Id</th>
                 <th>Title</th>
                 <th>Ldk</th>
-                <th>Hostid</th>
                 <th>Localisation</th>
                 <th>Price</th>
                 <th>Surface</th>
                 <th>Equipements</th>
                 <th>Description</th>
-                <th>Typeid</th>
                 <th>Statut</th>
-                <th>Deviseid</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -27,15 +24,12 @@
                 <td><a href="{{ path('rooms_show', { 'id': room.id }) }}">{{ room.id }}</a></td>
                 <td>{{ room.title }}</td>
                 <td>{{ room.lDK }}</td>
-                <td>{{ room.hostId }}</td>
                 <td>{{ room.localisation }}</td>
                 <td>{{ room.price }}</td>
                 <td>{{ room.surface }}</td>
                 <td>{{ room.equipements }}</td>
                 <td>{{ room.description }}</td>
-                <td>{{ room.typeId }}</td>
                 <td>{% if room.statut %}Yes{% else %}No{% endif %}</td>
-                <td>{{ room.deviseId }}</td>
                 <td>
                     <ul>
                         <li>

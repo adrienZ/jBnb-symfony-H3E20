@@ -13,9 +13,9 @@ class RoomsType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')->add('lDK')->add('hostId')->add('localisation')->add('price')->add('surface')->add('equipements')->add('description')->add('typeId')->add('statut')->add('deviseId')        ;
+        $builder->add('title')->add('lDK')->add('localisation')->add('price')->add('surface')->add('equipements')->add('description')->add('statut')->add('host')->add('type')->add('currency')        ;
     }
-    
+
     /**
      * {@inheritdoc}
      */

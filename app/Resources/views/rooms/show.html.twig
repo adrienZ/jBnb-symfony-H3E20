@@ -18,10 +18,6 @@
                 <td>{{ room.lDK }}</td>
             </tr>
             <tr>
-                <th>Hostid</th>
-                <td>{{ room.hostId }}</td>
-            </tr>
-            <tr>
                 <th>Localisation</th>
                 <td>{{ room.localisation }}</td>
             </tr>
@@ -42,16 +38,8 @@
                 <td>{{ room.description }}</td>
             </tr>
             <tr>
-                <th>Typeid</th>
-                <td>{{ room.typeId }}</td>
-            </tr>
-            <tr>
                 <th>Statut</th>
                 <td>{% if room.statut %}Yes{% else %}No{% endif %}</td>
-            </tr>
-            <tr>
-                <th>Deviseid</th>
-                <td>{{ room.deviseId }}</td>
             </tr>
         </tbody>
     </table>

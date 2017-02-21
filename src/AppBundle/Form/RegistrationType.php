@@ -8,6 +8,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class RegistrationType extends AbstractType
 {
@@ -20,11 +21,19 @@ class RegistrationType extends AbstractType
 
         $builder->add('email');
         $builder->add('username');
-        $builder->add('plainPassword', NULL);
+        $builder->add('plainPassword', PasswordType::class, [
+          'label' => 'mot de passe'
+        ]);
         $builder->add('email');
-        $builder->add('firstname');
-        $builder->add('lastname');
-        $builder->add('location');
+        $builder->add('firstname', NULL, [
+          'label' => 'prénom'
+        ]);
+        $builder->add('lastname', NULL, [
+          'label' => 'nom'
+        ]);
+        $builder->add('location', NULL, [
+          'label' => 'ville'
+        ]);
         $builder->add('dateOfBirth',
          DateType::class,
          array(
@@ -33,8 +42,8 @@ class RegistrationType extends AbstractType
             'label' => 'Date de naissance'
             )
         );
-        $builder->add('genderId');
-        $builder->add('deviseId');
+        $builder->add('gender');
+        $builder->add('currency');
 
 
         // default values

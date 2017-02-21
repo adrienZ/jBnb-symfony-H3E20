@@ -37,17 +37,19 @@ class Rooms
     private $lDK;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="host_id", type="integer")
-     */
-    private $hostId;
-
-    /**
      * @ORM\ManyToOne(targetEntity="User", cascade={"all"}, fetch="EAGER")
      * @ORM\JoinColumn(name="host_id", referencedColumnName="id")
      */
     private $host;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="host_id", type="integer")
+     */
+    // private $hostId;
+
+
 
     /**
      * @var string
@@ -103,7 +105,7 @@ class Rooms
      *
      * @ORM\Column(name="type_id", type="integer")
      */
-     private $typeId;
+     // private $typeId;
 
     /**
      * @var bool
@@ -123,56 +125,7 @@ class Rooms
      *
      * @ORM\Column(name="devise_id", type="integer")
      */
-     private $deviseId;
-
-
-    /**
-     *
-     * @ORM\ManyToOne(targetEntity="Gender", inversedBy="users")
-     * @ORM\JoinColumn(name="gender_id", referencedColumnName="id")
-     */
-     private $gender;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="gender_id", type="integer")
-     */
-     private $genderId;
-
-    /**
-     * @return mixed
-     */
-    public function getGender()
-    {
-        return $this->gender;
-    }
-
-    /**
-     * @param mixed $gender
-     */
-    public function setGender($gender)
-    {
-        $this->gender = $gender;
-    }
-
-    /**
-     * @return int
-     */
-    public function getGenderId()
-    {
-        return $this->genderId;
-    }
-
-    /**
-     * @param int $genderId
-     */
-    public function setGenderId($genderId)
-    {
-        $this->genderId = $genderId;
-    }
-
-
+     // private $deviseId;
 
     /**
      * Get id
@@ -254,6 +207,42 @@ class Rooms
     public function getHostId()
     {
         return $this->hostId;
+    }
+
+    /**
+     * Set host
+     *
+     * @param string $host
+     */
+    public function setHost($host)
+    {
+        $this->host = $host;
+
+        return $this;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Set currency
+     *
+     * @param string $currency
+     */
+    public function setCurrency($currency)
+    {
+        $this->currency = $currency;
+
+        return $this;
     }
 
     /**

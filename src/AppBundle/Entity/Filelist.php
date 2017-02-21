@@ -36,9 +36,7 @@ class Filelist
     private $userId;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="fileType", type="string", length=255)
+     * @ORM\ManyToOne(targetEntity="FileType", cascade={"all"}, fetch="EAGER")
      */
     private $fileType;
 
@@ -156,4 +154,3 @@ class Filelist
         return $this->src;
     }
 }
-

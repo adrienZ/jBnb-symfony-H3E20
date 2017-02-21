@@ -68,7 +68,7 @@ class User extends BaseUser
      * @ORM\ManyToOne(targetEntity="Gender", cascade={"all"}, fetch="EAGER")
      * @ORM\JoinColumn(name="gender_id", referencedColumnName="id")
      */
-    private $genderId;
+    private $gender;
 
     /**
      * @var int
@@ -76,7 +76,7 @@ class User extends BaseUser
      * @ORM\ManyToOne(targetEntity="Currency", cascade={"all"}, fetch="EAGER")
      * @ORM\JoinColumn(name="devise_id", referencedColumnName="id")
      */
-    private $deviseId;
+    private $currency;
 
     /**
      * @var string
@@ -248,51 +248,49 @@ class User extends BaseUser
     }
 
     /**
-     * Set genderId
+     * Set gender
      *
-     * @param integer $genderId
+     * @param integer $gender
      *
      * @return User
      */
-    public function setGenderId($genderId)
+    public function setGender($gender)
     {
-        $this->genderId = $genderId;
+        $this->gender = $gender;
 
         return $this;
     }
 
     /**
-     * Get genderId
+     * Get gender
      *
-     * @return int
      */
-    public function getGenderId()
+    public function getGender()
     {
-        return $this->genderId;
+        return $this->gender;
     }
 
     /**
-     * Set deviseId
+     * Set currency
      *
-     * @param integer $deviseId
+     * @param integer $currency
      *
      * @return User
      */
-    public function setDeviseId($deviseId)
+    public function setCurrency($currency)
     {
-        $this->deviseId = $deviseId;
+        $this->currency = $currency;
 
         return $this;
     }
 
     /**
-     * Get deviseId
+     * Get currency
      *
-     * @return int
      */
-    public function getDeviseId()
+    public function getCurrency()
     {
-        return $this->deviseId;
+        return $this->currency;
     }
 
     /**
