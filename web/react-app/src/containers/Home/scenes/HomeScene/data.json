@@ -1,0 +1,35 @@
+{
+  "new": [
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random"},
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random"},
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random"},
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random"},
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random"},
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random"},
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random"},
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random"},
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random"},
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random"}
+  ],
+  "horizontalAds": [
+    {"img": "https://unsplash.it/600/200/?random", "link": "/" },
+    {"img": "https://unsplash.it/600/200/?random", "link": "/" },
+    {"img": "https://unsplash.it/600/200/?random", "link": "/" }
+  ],
+  "verticalAds": [
+    {"img": "https://unsplash.it/200/600/?random", "link": "/" },
+    {"img": "https://unsplash.it/200/600/?random", "link": "/" },
+    {"img": "https://unsplash.it/200/600/?random", "link": "/" }
+  ],
+  "trending": [
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random", "type": "Spécial", "rating": 3},
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random", "type": "Spécial", "rating": 3},
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random", "type": "Spécial", "rating": 3},
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random", "type": "Spécial", "rating": 3},
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random", "type": "Spécial", "rating": 3},
+    {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random", "type": "Spécial", "rating": 3}
+  ],
+  "filters": {
+    "rooms": ["1K", "2K","3K","4K","1DK", "2DK","3DK","4DK","1LDK", "2LDK","3LDK","4LDK"]
+  }
+}
