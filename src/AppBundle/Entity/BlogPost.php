@@ -35,9 +35,6 @@ class BlogPost
    */
   private $draft = false;
 
-  // ...
-
-
     /**
      * @var int
      *
@@ -61,7 +58,7 @@ class BlogPost
      */
     private $body;
 
-    
+
 
 
     /**
