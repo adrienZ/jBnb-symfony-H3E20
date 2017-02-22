@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * Room controller.
  *
- * @Route("rooms")
+ * @Route("me")
  */
 class RoomsController extends Controller
 {
