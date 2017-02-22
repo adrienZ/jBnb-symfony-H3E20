@@ -16,7 +16,10 @@ class UsersAdmin extends AbstractAdmin
                    ->add('firstname','text')
                    ->add('lastname','text')
                    ->add('location','text')
-                   ->add('dateOfBirth','date')
+                   -->add('dateOfBirth', 'date', [
+                          'years' => range($currentYear, $currentYear - 100),
+                      ]
+                   )
                    ->add('paypalAccount','text')
                    ->add('roles','text')
 
@@ -39,7 +42,7 @@ class UsersAdmin extends AbstractAdmin
                    ->addIdentifier('firstname','text')
                    ->addIdentifier('lastname','text')
                    ->addIdentifier('location','text')
-                   ->addIdentifier('dateOfBirth','date')
+                   ->addIdentifier('dateOfBirth','date' )
                    ->addIdentifier('paypalAccount','text')
                    ->add('roles','text')
 

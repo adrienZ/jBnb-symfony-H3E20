@@ -29,7 +29,7 @@ class RoomsAdmin extends AbstractAdmin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper->add('title')
-                       
+
         ;
     }
 
