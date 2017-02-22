@@ -3,11 +3,10 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Rooms
- * @ApiResource
+ *
  * @ORM\Table(name="rooms")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\RoomsRepository")
  */
@@ -21,6 +20,7 @@ class Rooms
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
 
     /**
      * @var string
@@ -37,18 +37,11 @@ class Rooms
     private $lDK;
 
     /**
-     * @ORM\ManyToOne(targetEntity="User", cascade={"all"}, fetch="EAGER")
-     */
-    private $host;
-
-    /**
      * @var int
      *
      * @ORM\Column(name="host_id", type="integer")
      */
-    // private $hostId;
-
-
+    private $hostId;
 
     /**
      * @var string
@@ -86,17 +79,11 @@ class Rooms
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="RoomsType", cascade={"all"}, fetch="EAGER")
+     * @var int
+     *
+     * @ORM\Column(name="type_id", type="integer")
      */
-    private $type;
-
-    /**
-     * @return mixed
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
+    private $typeId;
 
     /**
      * @var bool
@@ -106,9 +93,11 @@ class Rooms
     private $statut;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Currency", cascade={"all"}, fetch="EAGER")
+     * @var int
+     *
+     * @ORM\Column(name="devise_id", type="integer")
      */
-    private $currency;
+    private $deviseId;
 
 
     /**
@@ -170,48 +159,27 @@ class Rooms
     }
 
     /**
-     * Set host
+     * Set hostId
      *
-     * @param int $host
+     * @param integer $hostId
+     *
+     * @return Rooms
      */
-    public function setHost($host)
+    public function setHostId($hostId)
     {
-        $this->host = $host;
+        $this->hostId = $hostId;
 
         return $this;
     }
 
     /**
-     * Set type
+     * Get hostId
      *
-     * @param string $type
+     * @return int
      */
-    public function setType($type)
+    public function getHostId()
     {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Set currency
-     *
-     * @param string $currency
-     */
-    public function setCurrency($currency)
-    {
-        $this->currency = $currency;
-
-        return $this;
-    }
-
-    /**
-     * Get host
-     *
-     */
-    public function getHost()
-    {
-        return $this->host;
+        return $this->hostId;
     }
 
     /**
@@ -335,6 +303,30 @@ class Rooms
     }
 
     /**
+     * Set typeId
+     *
+     * @param integer $typeId
+     *
+     * @return Rooms
+     */
+    public function setTypeId($typeId)
+    {
+        $this->typeId = $typeId;
+
+        return $this;
+    }
+
+    /**
+     * Get typeId
+     *
+     * @return int
+     */
+    public function getTypeId()
+    {
+        return $this->typeId;
+    }
+
+    /**
      * Set statut
      *
      * @param boolean $statut
@@ -358,13 +350,27 @@ class Rooms
         return $this->statut;
     }
 
+    /**
+     * Set deviseId
+     *
+     * @param integer $deviseId
+     *
+     * @return Rooms
+     */
+    public function setDeviseId($deviseId)
+    {
+        $this->deviseId = $deviseId;
+
+        return $this;
+    }
 
     /**
-     * Get curreny
+     * Get deviseId
      *
+     * @return int
      */
-    public function getCurrency()
+    public function getDeviseId()
     {
-        return $this->currency;
+        return $this->deviseId;
     }
 }
