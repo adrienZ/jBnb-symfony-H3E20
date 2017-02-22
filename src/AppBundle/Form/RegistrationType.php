@@ -42,10 +42,7 @@ class RegistrationType extends AbstractType
             'label' => 'Date de naissance'
             )
         );
-        $builder->add('gender');
-        $builder->add('currency');
-
-
+        
         // default values
         $builder->add('isHost', HiddenType::class, array(
           'required' => true,
