@@ -10,18 +10,19 @@ class UsersAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
+        $currentYear = (integer)date("Y");
         $formMapper->add('username', 'text')
                    ->add('email', 'email')
                    ->add('password', 'password')
                    ->add('firstname','text')
                    ->add('lastname','text')
                    ->add('location','text')
-                   -->add('dateOfBirth', 'date', [
+                   ->add('dateOfBirth', 'date', [
                           'years' => range($currentYear, $currentYear - 100),
                       ]
                    )
                    ->add('paypalAccount','text')
-                   ->add('roles','text')
+                   ->add('roles')
 
                    ;
 
@@ -44,7 +45,7 @@ class UsersAdmin extends AbstractAdmin
                    ->addIdentifier('location','text')
                    ->addIdentifier('dateOfBirth','date' )
                    ->addIdentifier('paypalAccount','text')
-                   ->add('roles','text')
+                   ->add('roles')
 
 
 
