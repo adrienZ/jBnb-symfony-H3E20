@@ -5,12 +5,13 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Rooms;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Room controller.
  *
- * @Route("rooms")
+ * @Route("me")
  */
 class RoomsController extends Controller
 {
@@ -39,6 +40,12 @@ class RoomsController extends Controller
      */
     public function newAction(Request $request)
     {
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+
+        if(!isset($user)) {
+          return $this->redirectToRoute('fos_user_security_login');
+        }
         $room = new Rooms();
         $form = $this->createForm('AppBundle\Form\RoomsType', $room);
         $form->handleRequest($request);

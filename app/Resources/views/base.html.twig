@@ -7,11 +7,10 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {{ dump(app.user)}}
         <div>
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
                 {% set user = app.user %}
-                {{ 'Connecté en tan que ' ~ user.firstname ~  ' ' ~ user.lastname | trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                {{ 'Connecté en tant que ' ~ user.firstname ~  ' ' ~ user.lastname | trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
                 <a href="{{ path('fos_user_security_logout') }}">
                     {{ 'déconnexion'|trans({}, 'FOSUserBundle') }}
                 </a>

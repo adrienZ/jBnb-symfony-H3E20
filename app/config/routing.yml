@@ -5,8 +5,11 @@ app_rooms:
 j_bnb_api:
     resource: "@jBnbApiBundle/Controller/"
     type:     annotation
-    prefix:   /api
-
+    prefix:   /api_test
+api:
+    resource: '.'
+    type:     'api_platform'
+    prefix:   '/apii'
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation

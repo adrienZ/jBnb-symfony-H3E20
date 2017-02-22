@@ -11,7 +11,7 @@
         "psr-4": { "Tests\\": "tests/" }
     },
     "require": {
-        "php": ">=5.5.9",
+        "php": ">=7.0",
         "symfony/symfony": "3.2.*",
         "doctrine/orm": "^2.5",
         "doctrine/doctrine-bundle": "^1.6",
@@ -26,6 +26,7 @@
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "sonata-project/admin-bundle": "^3.13",
         "sonata-project/doctrine-orm-admin-bundle": "^3.1"
+        "api-platform/core": "^2.0.0@beta",
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
@@ -49,7 +50,7 @@
     },
     "config": {
         "platform": {
-            "php": "5.5.9"
+            "php": "7.0"
         }
     },
     "extra": {

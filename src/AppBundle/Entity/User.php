@@ -6,10 +6,13 @@ namespace AppBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use ApiPlatform\Core\Annotation\ApiResource;
+
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="fos_user")
+ * @ApiResource
  */
 class User extends BaseUser
 {
@@ -30,7 +33,7 @@ class User extends BaseUser
      *
      * @ORM\Column(name="firstname", type="string", length=255)
      */
-    protected $firstname;
+    private $firstname;
 
     /**
      * @var string
@@ -45,41 +48,42 @@ class User extends BaseUser
      *     groups={"Registration", "Profile"}
      * )
      */
-    protected $lastname;
+    private $lastname;
 
     /**
      * @var string
      *
      * @ORM\Column(name="location", type="string", length=255)
      */
-    protected $location;
+    private $location;
 
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateOfBirth", type="date")
      */
-    protected $dateOfBirth;
+    private $dateOfBirth;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Gender", inversedBy="users")
+     * @ORM\ManyToOne(targetEntity="Gender", cascade={"all"}, fetch="EAGER")
      * @ORM\JoinColumn(name="gender_id", referencedColumnName="id")
      */
-    protected $genderId;
+    private $gender;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="devise_id", type="integer")
+     * @ORM\ManyToOne(targetEntity="Currency", cascade={"all"}, fetch="EAGER")
+     * @ORM\JoinColumn(name="devise_id", referencedColumnName="id")
      */
-    protected $deviseId;
+    private $currency;
 
     /**
      * @var string
      *
      * @ORM\Column(name="paypal_account", type="string", length=255)
      */
-    protected $paypalAccount;
+    private $paypalAccount;
 
     /**
      * @var bool
@@ -244,51 +248,49 @@ class User extends BaseUser
     }
 
     /**
-     * Set genderId
+     * Set gender
      *
-     * @param integer $genderId
+     * @param integer $gender
      *
      * @return User
      */
-    public function setGenderId($genderId)
+    public function setGender($gender)
     {
-        $this->genderId = $genderId;
+        $this->gender = $gender;
 
         return $this;
     }
 
     /**
-     * Get genderId
+     * Get gender
      *
-     * @return int
      */
-    public function getGenderId()
+    public function getGender()
     {
-        return $this->genderId;
+        return $this->gender;
     }
 
     /**
-     * Set deviseId
+     * Set currency
      *
-     * @param integer $deviseId
+     * @param integer $currency
      *
      * @return User
      */
-    public function setDeviseId($deviseId)
+    public function setCurrency($currency)
     {
-        $this->deviseId = $deviseId;
+        $this->currency = $currency;
 
         return $this;
     }
 
     /**
-     * Get deviseId
+     * Get currency
      *
-     * @return int
      */
-    public function getDeviseId()
+    public function getCurrency()
     {
-        return $this->deviseId;
+        return $this->currency;
     }
 
     /**
