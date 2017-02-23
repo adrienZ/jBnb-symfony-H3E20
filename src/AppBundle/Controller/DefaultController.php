@@ -41,10 +41,7 @@ class DefaultController extends Controller
      */
     public function showRoomPageAction(string $roomId)
     {
-      $em = $this->getDoctrine()->getManager();
-      $curlRequest = $this->get('app.service.curl_request');
-
-      dump( $curlRequest);
-      die();
+      $em = $this->getDoctrine()->getRepository('AppBundle:Rooms');
+      $room = $em->find($roomId);
     }
 }
