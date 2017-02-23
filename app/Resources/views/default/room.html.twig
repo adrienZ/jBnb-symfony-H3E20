@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <link rel="stylesheet" href="{{ asset('dist/src/css/room-page.css') }}">
+    <link rel="stylesheet" href="{{ asset('dist/src/css/login.css') }}">
 
     <section class="carousel">
         <div class="items">
@@ -12,32 +12,39 @@
             {% endif %}
         </div>
     </section>
+    <div class="profile_announces_one room_container">
+    <p class="profile_announces_one_information room_edit profile_announces_one_title">
+      <strong>Titre</strong> : {{ room.title }}
+    </p>
+    <p class="profile_announces_one_information room_edit profile_announces_one_localisation">
+      <strong>Place</strong> : {{ room.localisation }}
+    </p>
+    <p class="profile_announces_one_information room_edit profile_announces_one_price">
+      <strong>Price </strong> : {{ room.price }}
+    </p>
+    <p class="profile_announces_one_information room_edit profile_announces_one_surface">
+      <strong>Surface </strong> : {{ room.surface }}
+    </p>
+    <p class="profile_announces_one_information room_edit profile_announces_one_equipements">
+      <strong>Equipements</strong> : {{ room.equipements }}
+    </p>
+    <p class="profile_announces_one_information room_edit profile_announces_one_description">
+      <strong>Description</strong> : {{ room.description }}
+    </p>
 
-    <header class="room-header">
-        <div class="row">
-            <div class="left">{{ room.ldk }}
-                {{ room.localisation }}</div>
-            <div class="right">{{ room.price }}{{ room.currency.name }}
-                <span>{{ room.localisation }}</span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="right">{{ room.surface }}
-                m·2</div>
-        </div>
-    </header>
 
-    <div class="room-infos container col-md-12">
-        <h4>Appartement loué par <a href="">{{room.host.firstname ~ " " ~room.host.lastname}}</a></h4>
-        <p>{{room.description}}</p>
-        <p>
+
+      <p class="profile_announces_one_information room_edit profile_announces_one_description">Propriétaire :<a href="">{{room.host.firstname ~ " " ~room.host.lastname}}</a></p>
+</div>
+      <div class="profile_announces_one_actions room_action">
             <a href="mailto:{{ room.host.email }}"class="btn btn-primary btn-lg">Contacer le propriétaire</a>
             <a href="mailto:{{ room.host.email }}"class="btn btn-lg">Ajouter a ma wislist</a>
-        </p>
-    </div>
+      </div>
+
     <section class="room-infos">
 
-        </div>
+
+      </div>
         <div class="desc">
         </div>
     </section>

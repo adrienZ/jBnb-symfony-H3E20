@@ -133,6 +133,7 @@
 
 .profile_announces_one_actions a {
   margin:10px;
+  text-decoration:none;
 }
 
 
@@ -163,4 +164,22 @@
 .creation_header {
   text-align: center;
   padding-top:5%;
+}
+.room_edit {
+  margin-left:5%;
+  width:45%;
+}
+
+.room_container {
+  width:80%;
+
+  margin:auto;
+  margin-top:5%;
+}
+
+.room_action {
+  width: fit-content;
+    margin: auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
