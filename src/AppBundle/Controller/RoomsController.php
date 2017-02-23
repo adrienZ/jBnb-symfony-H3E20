@@ -22,6 +22,10 @@ class RoomsController extends Controller
      */
     public function indexAction()
     {
+        $user = $this->getUser();
+        if(!isset($user)){
+          return $this->redirectToRoute('fos_user_security_login');
+        }
         $em = $this->getDoctrine()->getManager();
 
         $rooms = $em->getRepository('AppBundle:Rooms')->findAll();
@@ -39,6 +43,10 @@ class RoomsController extends Controller
      */
     public function newAction(Request $request)
     {
+        $user = $this->getUser();
+        if(!isset($user)){
+          return $this->redirectToRoute('fos_user_security_login');
+        }
         $room = new Rooms();
         $form = $this->createForm('AppBundle\Form\RoomsType', $room);
         $form->handleRequest($request);
@@ -65,6 +73,10 @@ class RoomsController extends Controller
      */
     public function showAction(Rooms $room)
     {
+        $user = $this->getUser();
+        if(!isset($user)){
+          return $this->redirectToRoute('fos_user_security_login');
+        }
         $deleteForm = $this->createDeleteForm($room);
 
         return $this->render('rooms/show.html.twig', array(
@@ -81,6 +93,10 @@ class RoomsController extends Controller
      */
     public function editAction(Request $request, Rooms $room)
     {
+        $user = $this->getUser();
+        if(!isset($user)){
+          return $this->redirectToRoute('fos_user_security_login');
+        }
         $deleteForm = $this->createDeleteForm($room);
         $editForm = $this->createForm('AppBundle\Form\RoomsType', $room);
         $editForm->handleRequest($request);
@@ -106,6 +122,10 @@ class RoomsController extends Controller
      */
     public function deleteAction(Request $request, Rooms $room)
     {
+        $user = $this->getUser();
+        if(!isset($user)){
+          return $this->redirectToRoute('fos_user_security_login');
+        }
         $form = $this->createDeleteForm($room);
         $form->handleRequest($request);
 
@@ -127,6 +147,10 @@ class RoomsController extends Controller
      */
     private function createDeleteForm(Rooms $room)
     {
+        $user = $this->getUser();
+        if(!isset($user)){
+          return $this->redirectToRoute('fos_user_security_login');
+        }
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('rooms_delete', array('id' => $room->getId())))
             ->setMethod('DELETE')
