@@ -1,0 +1,10 @@
+// import all your globals variables
+@import 'globals/colors';
+@import 'globals/typography';
+@import 'globals/layout';
+
+// import your helpers functions
+@import 'modules/functions';
+
+// start coding
+@import 'partials/reset';
