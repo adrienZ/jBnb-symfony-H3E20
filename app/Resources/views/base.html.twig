@@ -43,6 +43,20 @@
             </ul>
         </nav>
         <style type="text/css">
+            body {
+              background: url('../react-app/src/assets/background.jpg');
+              background-size: 25%;
+              margin: 0;
+              padding: 0;
+            }
+            .main-container{
+              width: 75%;
+              min-width: 300px;
+              margin: auto;
+              min-height: 100vh;
+              background: white;
+              box-shadow: 0 2px 4px rgba(0,0,0,.5);
+            }
             .gIJQJC {
                 display: -webkit-box;
                 display: -moz-box;
@@ -413,7 +427,10 @@
             }
 
         </style>
+        <main class="main-container">
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        </main>
     </body>
 </html>

@@ -30,7 +30,7 @@ gulp.task('sass', (mode) => {
   .pipe(postcss(processors))
   .pipe(gulp.dest(DIST_ASSETS_URL+ 'css'));
 
-  gulp.watch(APP_ASSETS_URL+ 'sass/**/*.scss', ['sass']);
+  gulp.watch(APP_ASSETS_URL + 'sass/**/*.scss', ['sass']);
 });
 gulp.task('sassProd', (mode) => {
   return gulp.src(APP_ASSETS_URL+'sass/*.scss')
