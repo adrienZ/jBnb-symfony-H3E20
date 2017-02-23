@@ -37,7 +37,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/room/{roomId}", name="homepage")
+     * @Route("/room/{roomId}", name="room_page_product")
      */
     public function showRoomPageAction(string $roomId)
     {
