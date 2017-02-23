@@ -3,31 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * Category
+ * LDK
  *
- * @ORM\Table(name="category")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\CategoryRepository")
+ * @ORM\Table(name="ldk")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\LDKRepository")
  */
-class Category
+class LDK
 {
-  /**
-    * @ORM\OneToMany(targetEntity="BlogPost", mappedBy="category")
-    */
-    private $blogPosts;
-
-    public function __construct()
-    {
-        $this->blogPosts = new ArrayCollection();
-    }
-
-    public function getBlogPosts()
-    {
-        return $this->blogPosts;
-    }
-
     /**
      * @var int
      *
@@ -36,6 +20,16 @@ class Category
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getSymbole()
+    {
+        return $this->symbole;
+    }
 
     /**
      * @var string
@@ -60,7 +54,7 @@ class Category
      *
      * @param string $name
      *
-     * @return Category
+     * @return Ldk
      */
     public function setName($name)
     {
@@ -77,5 +71,10 @@ class Category
     public function getName()
     {
         return $this->name;
+    }
+
+    public function __toString() {
+
+      return $this->name;
     }
 }

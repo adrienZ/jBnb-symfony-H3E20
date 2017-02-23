@@ -5,8 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Rooms;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Room controller.
@@ -24,17 +23,8 @@ class RoomsController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $user = $this->getUser();
 
-        if(!isset($user)) {
-          return $this->redirectToRoute('fos_user_security_login');
-        }
         $rooms = $em->getRepository('AppBundle:Rooms')->findAll();
-
-        // get user Wishlist
-        $whishlist = $em->getRepository('AppBundle:Wishlist')->findBy(
-          array('userId' => $user->getId())
-        );
 
         return $this->render('rooms/index.html.twig', array(
             'rooms' => $rooms,
@@ -49,13 +39,7 @@ class RoomsController extends Controller
      */
     public function newAction(Request $request)
     {
-        $user = $this->getUser();
-        $em = $this->getDoctrine()->getManager();
-
-        if(!isset($user)) {
-          return $this->redirectToRoute('fos_user_security_login');
-        }
-        $room = new Rooms();
+        $room = new Room();
         $form = $this->createForm('AppBundle\Form\RoomsType', $room);
         $form->handleRequest($request);
 

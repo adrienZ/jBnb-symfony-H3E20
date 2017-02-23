@@ -20,6 +20,35 @@ class Currency
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="symbole", type="string")
+     */
+    private $symbole;
+    /**
+     * Set symbole
+     *
+     * @param string $symbole
+     *
+     * @return Currency
+     */
+    public function setSymbole($symbole)
+    {
+        $this->symbole = $symbole;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getSymbole()
+    {
+        return $this->symbole;
+    }
 
     /**
      * @var string
