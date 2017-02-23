@@ -18,3 +18,11 @@ services:
         arguments: [~, AppBundle\Entity\Rooms, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Rooms }
+    admin.users:
+
+        class: AppBundle\Admin\UsersAdmin
+
+
+        arguments: [~, AppBundle\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Users }

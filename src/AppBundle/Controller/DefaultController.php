@@ -13,9 +13,25 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+      $em = $this->getDoctrine()->getManager();
+      $recentRooms = $em->getRepository('AppBundle:Rooms')
+      // Get the 3 last results
+      ->findBy( [], [], 5);
+
+      // get all the offers on the website
+      $roomsCount = $em
+          ->getRepository('AppBundle:Rooms')
+          ->createQueryBuilder('AppBundle:Rooms')
+          ->select('COUNT(AppBundle:Rooms)')
+          ->getQuery()
+          ->getSingleScalarResult();
+
+
         // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
+        return $this->render('default/home.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+            'recentRooms' => $recentRooms,
+            'roomsCount' => $roomsCount,
         ]);
     }
 }

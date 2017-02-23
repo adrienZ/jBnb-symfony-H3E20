@@ -24,8 +24,17 @@ class RoomsController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
 
+        if(!isset($user)) {
+          return $this->redirectToRoute('fos_user_security_login');
+        }
         $rooms = $em->getRepository('AppBundle:Rooms')->findAll();
+
+        // get user Wishlist
+        $whishlist = $em->getRepository('AppBundle:Wishlist')->findBy(
+          array('userId' => $user->getId())
+        );
 
         return $this->render('rooms/index.html.twig', array(
             'rooms' => $rooms,

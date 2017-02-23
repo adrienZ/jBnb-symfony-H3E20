@@ -3,10 +3,11 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
  * Wishlist
- *
+ * @ApiResource
  * @ORM\Table(name="wishlist")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\WishlistRepository")
  */
@@ -125,4 +126,3 @@ class Wishlist
         return $this->likedAt;
     }
 }
-
