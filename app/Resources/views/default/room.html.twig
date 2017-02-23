@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <link rel="stylesheet" href="{{ asset('dist/src/css/room-page.css') }}">
+
+    <section class="carousel">
+        <div class="items">
+            {% if room.image_name is defined%}
+                <div class="item"></div>
+            {% else %}
+                <div class="item" style="background: url('http://union-ge.ch/wp-content/themes/professional-free/assets/images/placeholder2.jpg') no-repeat center center"></div>
+            {% endif %}
+        </div>
+    </section>
+
+
+    <header class="room-header">
+        <div class="row">
+            <div class="left">{{ room.ldk }} {{ room.localisation }}</div>
+            <div class="right">{{ room.price }}{{ room.currency.name }} <span>{{ room.localisation }}</span></div>
+        </div>
+        <div class="row">
+            <div class="right">{{ room.surface }} m·2</div>
+        </div>
+    </header>
+
+
+    <section class="room-infos">
+        <div class="host">
+          <p>Appartement loué par <a href="">{{room.host.firstname ~ " " ~room.host.lastname}}</a></p>
+          <img  alt="">
+        </div>
+        <div class="desc">
+          <p>{{room.description}}</p>
+        </div>
+    </section>
+
+
+{% endblock %}
