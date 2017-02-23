@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Service\CurlRequest;
 
 class DefaultController extends Controller
 {
@@ -33,5 +34,17 @@ class DefaultController extends Controller
             'recentRooms' => $recentRooms,
             'roomsCount' => $roomsCount,
         ]);
+    }
+
+    /**
+     * @Route("/room/{roomId}", name="homepage")
+     */
+    public function showRoomPageAction(string $roomId)
+    {
+      $em = $this->getDoctrine()->getManager();
+      $curlRequest = $this->get('app.service.curl_request');
+
+      dump( $curlRequest);
+      die();
     }
 }
