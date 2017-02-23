@@ -1,13 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Room creation</h1>
-
+<link rel="stylesheet" href="{{ asset('dist/src/css/login.css') }}">
+    <h1 class="creation_header">Creez votre annonce</h1>
+    <div class="login_container_form new_form">
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" value="Create" />
     {{ form_end(form) }}
-
+    </div>
     <ul>
         <li>
             <a href="{{ path('rooms_index') }}">Back to the list</a>

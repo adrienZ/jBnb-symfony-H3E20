@@ -5,22 +5,21 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 class RoomsAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper->add('title', 'text')
-                   ->add('LDK', 'text')
-                   ->add('host_id', 'number')
+
                    ->add('localisation', 'textarea')
                    ->add('price', 'number')
                    ->add('surface', 'number')
                    ->add('equipements', 'textarea')
                    ->add('description', 'textarea')
-                   ->add('type_id', 'number')
+                   ->add('ldk', 'sonata_type_model_hidden')
                    ->add('statut', 'textarea')
-                   ->add('devise_id', 'number')
+
                    ;
 
 
@@ -45,7 +44,7 @@ class RoomsAdmin extends AbstractAdmin
                    ->addIdentifier('description')
                    ->addIdentifier('type_id')
                    ->addIdentifier('statut')
-                   ->addIdentifier('devise_id')
+                   ->addIdentifier('currency_id')
         ;
     }
 }

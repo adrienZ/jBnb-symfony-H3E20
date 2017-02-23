@@ -1,53 +1,45 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Rooms list</h1>
+<link rel="stylesheet" href="{{ asset('dist/src/css/login.css') }}">
+<div class="login">
+    <h1 class="profile_header">Mon Profile</h1>
+    <h2 class="profile_subtitle">Mes annonces</h2>
+    <div class="profile_announces">
+      {% for room in rooms %}
+      <div class="profile_announces_one">
+        <a href="{{ path('rooms_show', { 'id': room.id }) }}">
+            <img class="profile_announces_one_image" src="{{ asset('images/rooms/' ~(room.imageName)) }}">
+          </a>
+        <p class="profile_announces_one_information profile_announces_one_title">
+          <strong>Titre</strong> : {{ room.title }}
+        </p>
+        <p class="profile_announces_one_information profile_announces_one_localisation">
+          <strong>Place</strong> : {{ room.localisation }}
+        </p>
+        <p class="profile_announces_one_information profile_announces_one_price">
+          <strong>Price </strong> : {{ room.price }}
+        </p>
+        <p class="profile_announces_one_information profile_announces_one_surface">
+          <strong>Surface </strong> : {{ room.surface }}
+        </p>
+        <p class="profile_announces_one_information profile_announces_one_equipements">
+          <strong>Equipements</strong> : {{ room.equipements }}
+        </p>
+        <p class="profile_announces_one_information profile_announces_one_description">
+          <strong>Description</strong> : {{ room.description }}
+        </p>
+        <div class="profile_announces_one_actions">
+        <a href="{{ path('rooms_edit', { 'id': room.id }) }}">Modifier</a>
+        <a href="{{ path('rooms_delete', { 'id': room.id }) }}">Supprimer</a>
+        </div>
+      </div>
+      {% endfor %}
+      <div class="profile_announces_new btn">
+          <a href="{{ path('rooms_new') }}">Ajouter une annonce</a>
+      </div>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Imagename</th>
-                <th>Title</th>
-                <th>Localisation</th>
-                <th>Price</th>
-                <th>Surface</th>
-                <th>Equipements</th>
-                <th>Description</th>
-                <th>Statut</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for room in rooms %}
-            <tr>
-                <td><a href="{{ path('rooms_show', { 'id': room.id }) }}">{{ room.id }}</a></td>
-                <td>{{ room.imageName }}</td>
-                <td>{{ room.title }}</td>
-                <td>{{ room.localisation }}</td>
-                <td>{{ room.price }}</td>
-                <td>{{ room.surface }}</td>
-                <td>{{ room.equipements }}</td>
-                <td>{{ room.description }}</td>
-                <td>{% if room.statut %}Yes{% else %}No{% endif %}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('rooms_show', { 'id': room.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('rooms_edit', { 'id': room.id }) }}">edit</a>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('rooms_new') }}">Create a new room</a>
-        </li>
-    </ul>
+    </div>
+
 {% endblock %}

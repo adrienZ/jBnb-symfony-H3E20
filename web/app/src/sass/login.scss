@@ -96,5 +96,71 @@
   color:#797979;
   padding:20px;
   text-align: center;
-  
+
+}
+
+
+// PROFILE //
+
+.profile_announces {
+  display:flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+}
+
+.profile_announces_one {
+  margin:5%;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width:30%;
+  padding: 5px;
+  border-radius:3px;
+  background:#EEEEEE;
+  border:1px solid black;
+}
+
+.profile_announces_one_information {
+  font-size:14px;
+  color:#797979;
+  width:50%;
+
+}
+
+.profile_announces_one_actions {
+  width:100%;
+}
+
+.profile_announces_one_actions a {
+  margin:10px;
+}
+
+
+.profile_header {
+  text-align: center;
+  padding-top:5%;
+}
+.profile_subtitle {
+  margin-left:5%;
+  color:#3366FE;
+}
+
+.profile_announces_new {
+  width:100%;
+  text-align: left;
+  margin-left: 5%;
+}
+.profile_announces_one_image {
+  width:100%;
+  padding-bottom:10px;
+}
+
+.new_form form{
+  margin-left:50%;
+  width:100%;
+}
+
+.creation_header {
+  text-align: center;
+  padding-top:5%;
 }
