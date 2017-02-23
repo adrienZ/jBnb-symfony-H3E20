@@ -82,7 +82,12 @@
     <div class="cBkDJK">
       {% for room in recentRooms %}
         <a class="ijJnIG" href="{{ path('room_page_product',  {'roomId': room.id} ) }}">
-          <img src="{{room.imageName}}" alt="" class="ceZQSL">
+          {% if room.imageName == ''  %}
+            <img src="https://unsplash.it/600/200/?random" alt="" class="ceZQSL">
+          {% else %}
+            <img src="{{ asset( 'images/rooms/' ~ room.imageName  )}}" alt="" class="ceZQSL">
+          {% endif %}
+
             <div>
                 <h3 class="bKcxni"><!-- react-text: 73 -->{{room.ldk}}<!-- /react-text -->
                     <!-- react-text: 74 -->
