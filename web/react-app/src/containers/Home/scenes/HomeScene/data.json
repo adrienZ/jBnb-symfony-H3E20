@@ -30,6 +30,7 @@
     {"rooms": "1DK", "location": "Shikoku", "size": 120, "price": 150000, "link": "annonce", "img": "https://unsplash.it/200/300/?random", "type": "Spécial", "rating": 3}
   ],
   "filters": {
-    "rooms": ["1K", "2K","3K","4K","1DK", "2DK","3DK","4DK","1LDK", "2LDK","3LDK","4LDK"]
+    "rooms": ["1K", "2K","3K","4K","1DK", "2DK","3DK","4DK","1LDK", "2LDK","3LDK","4LDK"],
+    "areas": ["10~20", "21~35", "36~55", "56~75", "76~100", "+100"]
   }
 }

@@ -63,7 +63,7 @@ class Nav extends Component {
             <Link to="/result" activeStyle={{ color, textDecoration: 'none' }}>Result</Link>
           </MenuItem>
           <MenuItem hoverColor={color}>
-            <Link to="" activeStyle={{ color, textDecoration: 'none' }}>Menu Item</Link>
+            <Link to="/post" activeStyle={{ color, textDecoration: 'none' }}>Un post</Link>
           </MenuItem>
           <MenuItem hoverColor={color}>
             <Link to="" activeStyle={{ color, textDecoration: 'none' }}>Menu Item</Link>

@@ -8,8 +8,11 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   background-color: ${props => props.value === 0 ? '#FFFFFF' : props.color };
+  color: ${props => props.value === 0 ? 'black' : 'white' }
   box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
   border-radius: 5px;
+  cursor: pointer;
+  margin-top: .625rem;
 `
 
 const Toggler = (props) => <Container {...props} />
