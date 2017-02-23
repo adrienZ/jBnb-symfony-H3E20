@@ -108,7 +108,9 @@ class Rooms
 
     /**
      * @ORM\ManyToOne(targetEntity="User", cascade={"all"}, fetch="EAGER")
+     * @ORM\joinColumn(onDelete="SET NULL")
      */
+
     private $host;
 
     /**
@@ -157,6 +159,7 @@ class Rooms
 
     /**
      * @ORM\ManyToOne(targetEntity="RoomsType", cascade={"all"}, fetch="EAGER")
+     * @ORM\joinColumn(onDelete="SET NULL")
      */
     private $type;
 
@@ -177,6 +180,7 @@ class Rooms
 
     /**
      * @ORM\ManyToOne(targetEntity="Currency", cascade={"all"}, fetch="EAGER")
+     * @ORM\joinColumn(onDelete="SET NULL")
      */
     private $currency;
 

@@ -39,7 +39,7 @@ class RoomsController extends Controller
      */
     public function newAction(Request $request)
     {
-        $room = new Room();
+        $room = new Rooms();
         $form = $this->createForm('AppBundle\Form\RoomsType', $room);
         $form->handleRequest($request);
 
