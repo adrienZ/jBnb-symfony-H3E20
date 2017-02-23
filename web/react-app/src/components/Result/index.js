@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import Stars from '../Stars'
+
 const Container = styled.div`
   display: flex;
   position: relative;
@@ -23,6 +25,12 @@ const Image = styled.div`
   background-repeat: no-repeat;
 `
 
+const Informations = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  margin-left: 1.5625rem;
+`
+
 const Title = styled.h2`
   margin-left: .5rem;
   color : ${props => props.color}
@@ -30,7 +38,9 @@ const Title = styled.h2`
 const Profile = styled.div`
   display: flex;
   flex-flow: row nowrap;
-`
+  align-items: center;
+  font-size: .625rem;
+ `
 
 const Subtitle = styled.div`
   display: flex;
@@ -41,11 +51,14 @@ const Subtitle = styled.div`
 const Size = styled.div`
   color: #9E9E9E;
 `
-const ProfileImg = styled.div`
-  background-image: url('${props =>  props.profilePic}');
-  border-radius: 50%;
+const Pp = styled.div`
+  background-image: url('${props => props.pp}');
+  background-position: center;
   width: 1.5rem;
-  height: 1.5rem:
+  height: 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 1rem;
 `
 
 const Raters = styled.div`
@@ -53,22 +66,24 @@ const Raters = styled.div`
   color: #9E9E9E;
 `
 
-const Result = ({size, state, prefecture, price, owner, rating, raters, image, color, profilePic}) => (
+const Result = ({size, state, prefecture, price, owner, rating, raters, image, color, pp}) => (
   <Container>
     <Image image={image}/>
-    <Title color={color}>{ size } { state } { prefecture }</Title>
-    <Subtitle>
-      <div>{ price }/ Jour</div>
-      <Size>{ size }m2</Size>
-    </Subtitle>
-    {/* <Profile>
-      <ProfileImg profilePic={profilePic}/>
-      <div>Appartement loué par <strong>{ owner }</strong></div>
-    </Profile> */}
-    <div>
-      <Raters>{ raters }</Raters>
-      La note
-    </div>
+    <Informations>
+      <Title color={color}>{ size } { state } { prefecture }</Title>
+      <Subtitle>
+        <div>{ price }/ Jour</div>
+        <Size>{ size }m2</Size>
+      </Subtitle>
+      <Profile>
+        <Pp pp={pp}/>
+        <div>Appartement loué par <strong>{ owner }</strong></div>
+      </Profile>
+      <div>
+        <Raters>{ raters }avis</Raters>
+        <Stars value={rating} color={color}/>
+      </div>
+    </Informations>
   </Container>
 )
 

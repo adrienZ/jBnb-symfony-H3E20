@@ -78,9 +78,6 @@ class HomeScene extends Component {
       }
     }
   }
-  componentDidMount(){
-    console.log(data)
-  }
   onHoverRegion(region, japName){
     const { top, left, width } = this.refs[region].getBoundingClientRect()
     const x = left + width / 2

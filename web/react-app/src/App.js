@@ -1,23 +1,24 @@
 // @flow
 import React, { Component } from 'react';
 import { Router, Route, browserHistory } from 'react-router'
+import { Provider } from 'react-redux';
 
 import HomeScene from './containers/Home/scenes/HomeScene'
 import ResultScene from './containers/Result/scenes/ResultScene'
+import configureStore from './store/configure-store';
 import './App.css'
+
+const store = configureStore();
 
 class App extends Component {
   render() {
     return (
-      <Router history={browserHistory}>
-        <Route path="/" component={HomeScene}>
-          {/* <Route path="users" component={Users}>
-            <Route path="/user/:userId" component={User}/>
-          </Route> */}
-          {/* <Route path="*" component={NoMatch}/> */}
-        </Route>
-        <Route path="result" component={ResultScene}/>
-      </Router>
+      <Provider store={store}>
+        <Router history={browserHistory}>
+          <Route path="/" component={HomeScene} />
+          <Route path="/result" component={ResultScene}/>
+        </Router>
+      </Provider>
     )
   }
 }
