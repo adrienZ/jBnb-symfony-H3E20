@@ -16,7 +16,7 @@ class DefaultController extends Controller
       $em = $this->getDoctrine()->getManager();
       $recentRooms = $em->getRepository('AppBundle:Rooms')
       // Get the 3 last results
-      ->findBy( [], [], 3);
+      ->findBy( [], [], 5);
 
       // get all the offers on the website
       $roomsCount = $em
@@ -26,10 +26,7 @@ class DefaultController extends Controller
           ->getQuery()
           ->getSingleScalarResult();
 
-          
 
-      dump($recentRooms);
-      dump($roomsCount);
         // replace this example code with whatever you need
         return $this->render('default/home.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
