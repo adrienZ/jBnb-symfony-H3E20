@@ -5,7 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Service\CurlRequest;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DefaultController extends Controller
 {
@@ -41,10 +41,20 @@ class DefaultController extends Controller
      */
     public function showRoomPageAction(string $roomId)
     {
-      $em = $this->getDoctrine()->getManager();
-      $curlRequest = $this->get('app.service.curl_request');
+      $em = $this->getDoctrine()->getRepository('AppBundle:Rooms');
 
-      dump( $curlRequest);
+      // get room
+      $room = $em->find($roomId);
+      if (!$room) {
+          throw new NotFoundHttpException("Erreur 404");
+      }
+      // replace this example code with whatever you need
+      return $this->render('default/room.html.twig', [
+          'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+          'room' => $room,
+      ]);
+
+      dump($room);
       die();
     }
 }

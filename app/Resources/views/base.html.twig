@@ -8,7 +8,7 @@
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     </head>
-    <body>
+    <body class="{{app.request.get('_route')}}">
         <nav class="gIJQJC">
             <div class="dqUvXD"><img
                 src="data:image/png;base64,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"
@@ -43,6 +43,21 @@
             </ul>
         </nav>
         <style type="text/css">
+            body {
+              background: url('../react-app/src/assets/background.jpg');
+              background-size: 25%;
+              margin: 0;
+              padding: 0;
+            }
+            .main-container{
+              width: 75%;
+              min-width: 300px;
+              max-width: 960px;
+              margin: auto;
+              min-height: 100vh;
+              background: white;
+              box-shadow: 0 2px 4px rgba(0,0,0,.5);
+            }
             .gIJQJC {
                 display: -webkit-box;
                 display: -moz-box;
@@ -413,7 +428,10 @@
             }
 
         </style>
+        <main class="main-container">
+
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
+        </main>
     </body>
 </html>
