@@ -28,7 +28,7 @@ class RoomsController extends Controller
         }
         $em = $this->getDoctrine()->getManager();
 
-        $rooms = $em->getRepository('AppBundle:Rooms')->findAll();
+        $rooms = $em->getRepository('AppBundle:Rooms')->findBy(["id" => $user->getId()]);
 
         return $this->render('rooms/index.html.twig', array(
             'rooms' => $rooms,
