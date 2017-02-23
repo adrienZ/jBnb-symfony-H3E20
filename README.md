@@ -35,6 +35,7 @@ $ php bin/console doctrine:database:create
 $ php bin/console doctrine:schema:update --force
 $ cd web
 $ npm install
+$ gulp sass
 $ cd ../
 $ sf server:run
 ```
