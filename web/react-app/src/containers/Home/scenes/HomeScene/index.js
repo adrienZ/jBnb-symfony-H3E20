@@ -195,8 +195,9 @@ class HomeScene extends Component {
     const { color } = this.props.color
     const { japName, alphName, x, y, filters } = this.state
     return (
+      //        <Nav />
+
       <Container background={background}>
-        <Nav />
         <StyledSwatches />
         <InlineContainer>
           <Filter>

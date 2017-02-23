@@ -5,8 +5,8 @@
 
     <section class="carousel">
         <div class="items">
-            {% if room.image_name is defined%}
-                <div class="item"></div>
+            {% if room.imageName is defined%}
+            <div class="item" style="background: url('{{ asset( 'images/rooms/' ~ room.imageName )}}') no-repeat center center;min-height: 400px;background-size: cover;"></div>
             {% else %}
                 <div class="item" style="background: url('http://union-ge.ch/wp-content/themes/professional-free/assets/images/placeholder2.jpg') no-repeat center center"></div>
             {% endif %}
