@@ -32,6 +32,7 @@ You need to install node.js and gulp
 ```
 $ composer install
 $ php bin/console doctrine:database:create
+$ php bin/console doctrine:database:import sql-exports/jBNb.sql
 $ php bin/console doctrine:schema:update --force
 $ cd web
 $ npm install
