@@ -40,12 +40,6 @@ class Rooms
      */
     private $imageName;
 
-    /**
-     * @ORM\Column(type="datetime")
-     *
-     * @var \DateTime
-     */
-    private $updatedAt;
 
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
@@ -65,7 +59,7 @@ class Rooms
         if ($image) {
             // It is required that at least one field changes if you are using doctrine
             // otherwise the event listeners won't be called and the file is lost
-            $this->updatedAt = new \DateTimeImmutable();
+
         }
 
         return $this;
@@ -107,15 +101,16 @@ class Rooms
     private $title;
 
     /**
-     * @var string
      *
-     * @ORM\Column(name="LDK", type="string", length=100)
+     * @ORM\ManyToOne(targetEntity="LDK", cascade={"all"}, fetch="EAGER")
      */
     private $lDK;
 
     /**
      * @ORM\ManyToOne(targetEntity="User", cascade={"all"}, fetch="EAGER")
+     * @ORM\joinColumn(onDelete="SET NULL")
      */
+
     private $host;
 
     /**
@@ -164,6 +159,7 @@ class Rooms
 
     /**
      * @ORM\ManyToOne(targetEntity="RoomsType", cascade={"all"}, fetch="EAGER")
+     * @ORM\joinColumn(onDelete="SET NULL")
      */
     private $type;
 
@@ -184,6 +180,7 @@ class Rooms
 
     /**
      * @ORM\ManyToOne(targetEntity="Currency", cascade={"all"}, fetch="EAGER")
+     * @ORM\joinColumn(onDelete="SET NULL")
      */
     private $currency;
 

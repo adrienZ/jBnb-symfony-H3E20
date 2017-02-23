@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Currency
+ * LDK
  *
- * @ORM\Table(name="currency")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\CurrencyRepository")
+ * @ORM\Table(name="ldk")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\LDKRepository")
  */
-class Currency
+class LDK
 {
     /**
      * @var int
@@ -20,25 +20,6 @@ class Currency
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="symbole", type="string")
-     */
-    private $symbole;
-    /**
-     * Set symbole
-     *
-     * @param string $symbole
-     *
-     * @return Currency
-     */
-    public function setSymbole($symbole)
-    {
-        $this->symbole = $symbole;
-
-        return $this;
-    }
 
     /**
      * Get name
@@ -73,7 +54,7 @@ class Currency
      *
      * @param string $name
      *
-     * @return Currency
+     * @return Ldk
      */
     public function setName($name)
     {
