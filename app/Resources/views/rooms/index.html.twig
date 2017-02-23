@@ -7,8 +7,8 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Imagename</th>
                 <th>Title</th>
-                <th>Ldk</th>
                 <th>Localisation</th>
                 <th>Price</th>
                 <th>Surface</th>
@@ -22,8 +22,8 @@
         {% for room in rooms %}
             <tr>
                 <td><a href="{{ path('rooms_show', { 'id': room.id }) }}">{{ room.id }}</a></td>
+                <td>{{ room.imageName }}</td>
                 <td>{{ room.title }}</td>
-                <td>{{ room.lDK }}</td>
                 <td>{{ room.localisation }}</td>
                 <td>{{ room.price }}</td>
                 <td>{{ room.surface }}</td>
