@@ -16,6 +16,9 @@ class AppKernel extends Kernel
     public function registerBundles()
     {
         $bundles = [
+            // Bundle to upload images
+            new Vich\UploaderBundle\VichUploaderBundle(),
+
             new Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
             new Symfony\Bundle\SecurityBundle\SecurityBundle(),
             new Symfony\Bundle\TwigBundle\TwigBundle(),
@@ -27,7 +30,7 @@ class AppKernel extends Kernel
             new ApiPlatform\Core\Bridge\Symfony\Bundle\ApiPlatformBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new jBnb\ApiBundle\jBnbApiBundle(),
-              
+
 
             // These are the other bundles the SonataAdminBundle relies on
             new Sonata\CoreBundle\SonataCoreBundle(),
