@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Nav from '../../../../components/Nav'
 import Result from '../../../../components/Result'
 import RegionSwitcher from '../../../../components/RegionSwitcher'
+import PrefectureSwitcher from '../../../../components/PrefectureSwitcher'
 import background from '../../../../assets/background.jpg'
 import * as colorActions from '../../../../actions/colorActions'
 import data from './data.json'
@@ -24,31 +25,65 @@ class ResultScene extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      showModal: false,
+      showMap: false,
+      showPrefecture: false,
       filters: {
         region: '',
+        prefectures: [0, 1, 2],
       }
     }
   }
 
   changeRegion(region){
     this.setState(({filters}) => ({filters: {...filters, region }}))
-    this.hideModal()
+    this.hideMap()
+  }
+  addPrefecture(index){
+    let prefectures = this.state.filters.prefectures
+    prefectures.push(index)
+    if (!this.state.filters.prefectures.includes(index)) {
+      this.setState(({filters}) => (
+        {filters: {
+          ...filters,
+          prefectures,
+        }}
+      ))
+    }
+    console.log(this.state.filters.prefectures);
+  }
+  removePrefecture(index){
+    const prefectures = this.state.filters.prefectures.filter((i) => (i !== index))
+    this.setState(({filters}) => ({filters: {...filters, prefectures }}))
   }
 
-  showModal() {
-    this.setState({showModal: true})
+  showMap() {
+    this.setState({showMap: true})
   }
-  hideModal() {
-    this.setState({showModal: false})
+  hideMap() {
+    this.setState({showMap: false})
+  }
+  showPrefecture() {
+    this.setState({showPrefecture: true})
+  }
+  hidePrefecture() {
+    this.setState({showPrefecture: false})
   }
   render() {
     const { color } = this.props.color
-    const { showModal, filters } = this.state
+    const { showMap, filters, showPrefecture } = this.state
     return (
       <Container background={background}>
         <Nav />
-        { showModal && <RegionSwitcher color={color} onSelectRegion={(region) => this.changeRegion(region)}/>}
+        {showMap && <RegionSwitcher color={color} onSelectRegion={(region) => this.changeRegion(region)}/>}
+        {showPrefecture &&
+          <PrefectureSwitcher
+            color={color}
+            prefectures={data.prefectures}
+            activePrefecturesIndex={filters.prefectures}
+            addPrefecture={(index) => this.addPrefecture(index)}
+            removePrefecture={(index) => this.removePrefecture(index)}
+          />
+        }
         <ResultsContainer>
           {data.results.map((result, key) => (
             <Result
@@ -66,7 +101,12 @@ class ResultScene extends Component {
             />
           ))}
         </ResultsContainer>
-        <div onClick={() => this.showModal()}>Region : { filters.region }</div>
+        <div onClick={() => this.showMap()}>Region : { filters.region }</div>
+        <div onClick={() => this.showPrefecture()}>
+          Prefectures : { this.state.filters.prefectures.map((prefecture, index) => (
+            <div key={index}>{prefecture}</div>
+          )) }
+        </div>
       </Container>
     )
   }

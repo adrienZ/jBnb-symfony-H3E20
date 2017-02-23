@@ -151,6 +151,7 @@ class HomeScene extends Component {
 
   onChangeRegion(region){
     this.setState({ alphName: region })
+    this.setState(() => ({filters: {...this.state.filters, region}}))
   }
 
   changeRoom(index){
@@ -169,12 +170,25 @@ class HomeScene extends Component {
     }
   }
   crementChild(sign){
-
     if (sign === '+') {
       this.setState(() => ({filters: {...this.state.filters, child: this.state.filters.child + 1}}))
     } else {
       this.setState(() => ({filters: {...this.state.filters, child: this.state.filters.child - 1}}))
     }
+  }
+  logForm() {
+    const { room, area, region, child, adults } = this.state.filters
+    const minPrice = this.minPrice.value
+    const maxPrice = this.maxPrice.value
+    console.table([
+      {room: data.filters.rooms[room]},
+      {area: data.filters.areas[area]},
+      {region},
+      {child},
+      {adults},
+      {minPrice},
+      {maxPrice}
+    ])
   }
 
   render() {
@@ -232,7 +246,7 @@ class HomeScene extends Component {
             <input type="number" step="100" defaultValue="1000000" ref={(input) => { this.maxPrice = input}} id="max-price"/>
             <FilterSection>Region</FilterSection>
             <div>{filters.region.length === 0 ? 'Choisissez une région sur la carte' : filters.region }</div>
-            <SearchButton color={color}>Rechercher</SearchButton>
+            <SearchButton color={color} onClick={() => this.logForm()}>Rechercher</SearchButton>
           </Filter>
           <Bubble alphName={alphName} japName={japName} color={color} x={x} y={y}/>
           <svg width="606" height="398" viewBox="0 0 606 398">

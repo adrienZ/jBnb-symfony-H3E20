@@ -6,5 +6,21 @@
     {"size": "1DK", "state": "Chubu", "prefecture": "Aichi", "price": "150.000", "owner": "Panacota", "rating": 4, "raters": 31, "pp": "https://unsplash.it/200/600/?random", "images": ["https://unsplash.it/200/600/?random", "https://unsplash.it/200/600/?random", "https://unsplash.it/200/600/?random"]},
     {"size": "1DK", "state": "Chubu", "prefecture": "Aichi", "price": "150.000", "owner": "Panacota", "rating": 4, "raters": 31, "pp": "https://unsplash.it/200/600/?random", "images": ["https://unsplash.it/200/600/?random", "https://unsplash.it/200/600/?random", "https://unsplash.it/200/600/?random"]},
     {"size": "1DK", "state": "Chubu", "prefecture": "Aichi", "price": "150.000", "owner": "Panacota", "rating": 4, "raters": 31, "pp": "https://unsplash.it/200/600/?random", "images": ["https://unsplash.it/200/600/?random", "https://unsplash.it/200/600/?random", "https://unsplash.it/200/600/?random"]}
+  ],
+  "prefectures": [
+    {"name": "Niigata (JP-15)"},
+    {"name": "Niigata (JP-15)"},
+    {"name": "Niigata (JP-15)"},
+    {"name": "Niigata (JP-15)"},
+    {"name": "Niigata (JP-15)"},
+    {"name": "Niigata (JP-15)"},
+    {"name": "Niigata (JP-15)"},
+    {"name": "Niigata (JP-15)"},
+    {"name": "Niigata (JP-15)"},
+    {"name": "Niigata (JP-15)"},
+    {"name": "Niigata (JP-15)"},
+    {"name": "Niigata (JP-15)"},
+    {"name": "Niigata (JP-15)"},
+    {"name": "Niigata (JP-15)"}
   ]
 }
