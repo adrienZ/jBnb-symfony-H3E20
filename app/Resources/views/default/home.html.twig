@@ -1,0 +1,822 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <body>
+        <style type="text/css">
+            .gIJQJC {
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                flex-flow: row;
+                -ms-flex-flow: row;
+                -webkit-flex-flow: row;
+                border-bottom: 3px solid black;
+                box-shadow: 0 2px 6px 0 rgba(0,0,0,0.34);
+                background-color: white;
+                width: 100vw;
+            }
+            .dqUvXD {
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                align-items: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+            }
+            .hVAnO {
+                height: 3rem;
+                margin-left: 3rem;
+            }
+            .eOToMk {
+                margin-left: 0.5rem;
+                color: #1B54FD;
+            }
+            .ckbxMp {
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                flex-flow: row;
+                -ms-flex-flow: row;
+                -webkit-flex-flow: row;
+                justify-content: space-between;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                -webkit-justify-content: space-between;
+                max-width: 30rem;
+                flex: 1;
+                -ms-flex: 1;
+                -webkit-flex: 1;
+                margin: auto;
+            }
+            .dGpOWA {
+                text-decoration: none;
+                list-style-type: none;
+            }
+            .dGpOWA:hover {
+                color: #1B54FD;
+                cursor: pointer;
+            }
+            .kichkD {
+                position: absolute;
+                top: 0;
+                left: 0;
+                border: 1px solid #1B54FD;
+                transform: translate(-50%, -100%);
+                -ms-transform: translate(-50%, -100%);
+                -webkit-transform: translate(-50%, -100%);
+                transition: all 0.3s;
+                -webkit-transition: all 0.3s;
+                background-color: white;
+                padding: 1rem;
+                border-radius: 5px;
+                pointer-events: none;
+            }
+            .fyBlBV {
+                position: absolute;
+                top: 413.8074951171875px;
+                left: 494.90301513671875px;
+                border: 1px solid #1B54FD;
+                transform: translate(-50%, -100%);
+                -ms-transform: translate(-50%, -100%);
+                -webkit-transform: translate(-50%, -100%);
+                transition: all 0.3s;
+                -webkit-transition: all 0.3s;
+                background-color: white;
+                padding: 1rem;
+                border-radius: 5px;
+                pointer-events: none;
+            }
+            .dzEYUE {
+                position: absolute;
+                top: 295.1875px;
+                left: 528.0169982910156px;
+                border: 1px solid #1B54FD;
+                transform: translate(-50%, -100%);
+                -ms-transform: translate(-50%, -100%);
+                -webkit-transform: translate(-50%, -100%);
+                transition: all 0.3s;
+                -webkit-transition: all 0.3s;
+                background-color: white;
+                padding: 1rem;
+                border-radius: 5px;
+                pointer-events: none;
+            }
+            .gNNtDA {
+                position: absolute;
+                top: 720.1875px;
+                left: 528.0169982910156px;
+                border: 1px solid #1B54FD;
+                transform: translate(-50%, -100%);
+                -ms-transform: translate(-50%, -100%);
+                -webkit-transform: translate(-50%, -100%);
+                transition: all 0.3s;
+                -webkit-transition: all 0.3s;
+                background-color: white;
+                padding: 1rem;
+                border-radius: 5px;
+                pointer-events: none;
+            }
+            .dzjUbZ {
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+            }
+            .esTscY {
+                background: #1B54FD;
+                width: 1rem;
+                height: 1rem;
+                border-radius: 0.3125rem;
+                margin: 0.2rem;
+                border: 1px solid black;
+            }
+            .jCMHvl {
+                background: #EDFF39;
+                width: 1rem;
+                height: 1rem;
+                border-radius: 0.3125rem;
+                margin: 0.2rem;
+                border:
+            }
+            .dpJigP {
+                background: #E40909;
+                width: 1rem;
+                height: 1rem;
+                border-radius: 0.3125rem;
+                margin: 0.2rem;
+                border:
+            }
+            .jaGaXI {
+                background: #F83CB6;
+                width: 1rem;
+                height: 1rem;
+                border-radius: 0.3125rem;
+                margin: 0.2rem;
+                border:
+            }
+            .crTnbY {
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                width: 2.8125rem;
+                height: 2.3125rem;
+                justify-content: center;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                align-items: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                background-color: #1B54FD;
+                box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+                border-radius: 5px;
+            }
+            .ihqBzd {
+                background: #FFFFFF;
+                box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+                border-radius: 5px;
+                position: relative;
+                margin-top: 4rem;
+                height: 14.0625rem;
+                width: 15.625rem;
+                text-decoration: none;
+                color: black;
+                transition: 0.1s ease-in;
+                -webkit-transition: 0.1s ease-in;
+            }
+            .ihqBzd:hover {
+                box-shadow: 0 3px 6px 0 rgba(0,0,0,0.50);
+                transform: scale(1.05);
+                -ms-transform: scale(1.05);
+                -webkit-transform: scale(1.05);
+            }
+            .blfiMe {
+                position: absolute;
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                justify-content: center;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                align-items: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                -webkit-align-items: center;
+                border-radius: 50%;
+                top: 0;
+                left: 100%;
+                transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                -webkit-transform: translate(-50%, -50%);
+                color: white;
+                background-color: #1B54FD;
+                width: 4.25rem;
+                height: 4.25rem;
+            }
+            .imgwsA {
+                background-image: url('https://unsplash.it/200/300/?random');
+                background-size: cover;
+                background-position: center;
+                width: 15.625rem;
+                height: 8.9375rem;
+            }
+            .bRehpm {
+                font-size: 1rem;
+                margin: 0;
+            }
+            .kdxSdW {
+                font-size: 0.75rem;
+                color: #9E9E9E;
+                margin: 0;
+            }
+            .enoGdw {
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                flex-flow: row nowrap;
+                -ms-flex-flow: row nowrap;
+                -webkit-flex-flow: row nowrap;
+            }
+            .enoGdw > * {
+                margin-left: 0.3rem;
+                width: 1rem;
+                height: 1rem;
+            }
+            .ijJnIG {
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                flex-flow: row;
+                -ms-flex-flow: row;
+                -webkit-flex-flow: row;
+                text-decoration: none;
+                color: black;
+                min-width: 15rem;
+                background-color: white;
+                margin-left: 1rem;
+                box-shadow: 0 2px 4px black;
+                border-radius: 5px;
+                height: 5rem;
+                transition: 0.1s ease-in;
+                -webkit-transition: 0.1s ease-in;
+            }
+            .ijJnIG:hover {
+                box-shadow: 0 4px 6px black;
+                transform: scale(1.05);
+                -ms-transform: scale(1.05);
+                -webkit-transform: scale(1.05);
+            }
+            .ceZQSL {
+                width: 5rem;
+                height: 5rem;
+            }
+            .bKcxni {
+                font-size: 1rem;
+            }
+            .fqwEMC {
+                font-size: 0.75rem;
+            }
+            .bwmhAa {
+                background-image: url("/static/media/background.7d8ecb5e.jpg");
+                background-repeat: repeat;
+            }
+            .dpWynQ {
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                flex-flow: column;
+                -ms-flex-flow: column;
+                -webkit-flex-flow: column;
+                width: 13.0625rem;
+            }
+            .eKtryz {
+                font-size: 0.875rem;
+                position: relative;
+                text-align: center;
+            }
+            .eKtryz::after {
+                content: '';
+                position: absolute;
+                bottom: -1rem;
+                left: 50%;
+                transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
+                -webkit-transform: translateX(-50%);
+                width: 10%;
+                height: 2px;
+                background-color: black;
+            }
+            .cBkDJK {
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                flex-flow: row nowrap;
+                -ms-flex-flow: row nowrap;
+                -webkit-flex-flow: row nowrap;
+                margin-left: 1rem;
+                overflow: scroll;
+                padding-bottom: 1rem;
+            }
+            .OnIBE {
+                margin-top: 2rem;
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                flex-flow: row nowrap;
+                -ms-flex-flow: row nowrap;
+                -webkit-flex-flow: row nowrap;
+                overflow: scroll;
+            }
+            .OnIBE > * {
+                margin-left: 2rem;
+                height: 10rem;
+            }
+            .hiTrwk {
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                flex-flow: row wrap;
+                -ms-flex-flow: row wrap;
+                -webkit-flex-flow: row wrap;
+                max-width: 58.125rem;
+                justify-content: space-around;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: distribute;
+                -webkit-justify-content: space-around;
+                margin: auto;
+            }
+
+        </style>
+        <style type="text/css">
+            .App {
+                text-align: center;
+            }
+
+            .App-logo {
+                -webkit-animation: App-logo-spin infinite 20s linear;
+                animation: App-logo-spin infinite 20s linear;
+                height: 80px;
+            }
+
+            .App-header {
+                background-color: #222;
+                height: 150px;
+                padding: 20px;
+                color: white;
+            }
+
+            .App-intro {
+                font-size: large;
+            }
+            @-webkit-keyframes App-logo-spin {
+                from {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                to {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+            @keyframes App-logo-spin {
+                from {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                to {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                }
+            }
+
+        </style>
+        <div data-reactroot="" class="bwmhAa">
+            <nav class="gIJQJC">
+                <div class="dqUvXD"><img
+                    src="data:image/png;base64,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"
+                    alt=""
+                    class="hVAnO">
+                    <h2 color="#1B54FD" class="eOToMk">楽しいです</h2>
+                </div>
+                <ul class="ckbxMp">
+                    <li class="dGpOWA">
+                        <a href="/" style="color: rgb(27, 84, 253); text-decoration: none;">Accueil</a>
+                    </li>
+                    <li class="dGpOWA">
+                        <a>Menu Item</a>
+                    </li>
+                    <li class="dGpOWA">
+                        <a>Menu Item</a>
+                    </li>
+                    <li class="dGpOWA">
+                        <a>Menu Item</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="dzjUbZ">
+                <div color="#1B54FD" class="esTscY"></div>
+                <div color="#EDFF39" class="jCMHvl"></div>
+                <div color="#E40909" class="dpJigP"></div>
+                <div color="#F83CB6" class="jaGaXI"></div>
+            </div>
+            <div class="dpWynQ">
+                <h3 class="eKtryz">Voyageurs</h3>
+                <h3 class="eKtryz">Nombre de pièces</h3>
+                <div color="#1B54FD" class="crTnbY">1K</div>
+                <div color="#1B54FD" class="crTnbY">2K</div>
+                <div color="#1B54FD" class="crTnbY">3K</div>
+                <div color="#1B54FD" class="crTnbY">4K</div>
+                <div color="#1B54FD" class="crTnbY">1DK</div>
+                <div color="#1B54FD" class="crTnbY">2DK</div>
+                <div color="#1B54FD" class="crTnbY">3DK</div>
+                <div color="#1B54FD" class="crTnbY">4DK</div>
+                <div color="#1B54FD" class="crTnbY">1LDK</div>
+                <div color="#1B54FD" class="crTnbY">2LDK</div>
+                <div color="#1B54FD" class="crTnbY">3LDK</div>
+                <div color="#1B54FD" class="crTnbY">4LDK</div>
+                <h3 class="eKtryz">Superficié m2</h3>
+                <h3 class="eKtryz">Prix</h3>
+            </div>
+            <div class="kichkD">
+                <div>None</div>
+                <div>None</div>
+            </div>
+            <svg width="606" height="398" viewBox="0 0 606 398">
+                <g transform="translate(-2)" fill="#1B54FD" fill-rule="evenodd">
+                    <path
+                        d="M477.455 96.576v12.84c0 2.764-2.24 5.005-5 5.005h-15.23c-2.762 0-5-2.244-5-5.004V22.85c0-1.38.56-2.632 1.465-3.538.9-.906 2.15-1.466 3.535-1.466h23.384V5.006c0-2.765 2.236-5.006 4.998-5.006h87.766c2.762 0 5 2.234 5 5.006v12.84h24.434c2.762 0 5 2.235 5 5.007v15.18c0 .46-.062.908-.178 1.333.116.425.18.872.18 1.333v50.868c0 2.766-2.247 5.008-5.006 5.008h-125.35z"></path>
+                    <path d="M540.53 196.828V123.62c0-2.762-2.24-5-5.005-5H458.28c-2.76 0-5.004 2.24-5.004 5v82.378c0 2.762 2.24 5 5.005 5h24.43v28.588c0 2.762 2.242 5.003 5.006 5.003h47.81c2.772 0 5.003-2.24 5.003-5.004v-42.758z"></path>
+                    <path
+                        d="M491.12 315.97h-3.153v19.153c0 2.757-2.24 4.992-5 4.992h-9.717v18.095c0 2.76-2.23 5-5.01 5h-11.006c-2.766 0-5.01-2.24-5.01-5v-54.836h-5.513c-2.76 0-4.997-2.24-4.997-5v-44.585c0-2.763 2.237-5.002 4.998-5.002h61.49c2.76 0 4.997 2.242 4.997 5v103.374c0 2.76-2.238 4.998-5.01 4.998H496.13c-2.766 0-5.01-2.246-5.01-4.998v-41.19z"></path>
+                    <path
+                        d="M361.818 247.738H345.79c-2.748 0-4.997 2.24-4.997 5.006v3.392H327.92c-2.76 0-4.998 2.24-4.998 5.002v8.892c0 2.76 2.238 5 4.998 5h79.102v48.54c0 1.383.56 2.633 1.464 3.537.907.9 2.16 1.46 3.542 1.46h30.985c2.774 0 5.007-2.238 5.007-5v-10.992c0-2.755-2.242-5.002-5.007-5.002h-5.505V243.54H473.5c2.774 0 5.006-2.238 5.006-5v-18.34c0-2.754-2.24-5.002-5.006-5.002h-82.247v-10.748c0-2.76-2.236-4.998-4.993-4.998h-19.45c-2.755 0-4.992 2.238-4.992 4.998v43.29zm42.05-46.433c0-2.764 2.242-5.004 5-5.004h5.768c2.762 0 5 2.24 5 5.005v3.64c0 2.762-2.242 5.003-5 5.003h-5.768c-2.76 0-5-2.24-5-5.004v-3.64z"></path>
+                    <rect x="183.107" y="257.186" width="76.741" height="69.283" rx="5"></rect>
+                    <rect x="184.159" y="331.717" width="105.124" height="51.437" rx="5"></rect>
+                    <path
+                        d="M266.155 290.777v-27.54c0-2.763 2.247-5 5.01-5h41.492c2.766 0 5.01 2.237 5.01 5v17.043h49.667c2.76 0 4.997 2.246 4.997 5v24.64c0 2.763-2.24 5-4.996 5h-26.54v64.284c0 2.762-2.232 5-4.995 5h-36.267c-2.758 0-4.994-2.236-4.994-5V326.47h-23.386c-2.76 0-5-2.243-5-4.996v-7.856c0-.654.127-1.278.355-1.85-.23-.57-.355-1.195-.355-1.847v-19.143z"></path>
+                    <path
+                        d="M71.277 262.087c.028-2.756 2.298-4.99 5.055-4.99h94.106c2.764 0 5.004 2.24 5.004 4.997v115.99c0 2.76-2.243 4.997-4.998 4.997H127.05c-2.76 0-4.998-2.228-4.998-4.99V317.5c0-2.757-2.237-4.99-5-4.99h-41.29c-2.76 0-4.977-2.242-4.95-4.992l.465-45.43z"></path>
+                </g>
+            </svg>
+            <h3 style="text-align: center;">Nouvelles annonces</h3>
+            <div class="cBkDJK">
+                <a class="ijJnIG" href="annonce"><img src="https://unsplash.it/200/300/?random" alt="" class="ceZQSL">
+                    <div>
+                        <h3 class="bKcxni"><!-- react-text: 56 -->1DK<!-- /react-text -->
+                            <!-- react-text: 57 -->
+                            •
+                            <!-- /react-text -->
+                            <!-- react-text: 58 -->
+                            Shikoku<!-- /react-text --></h3>
+                        <h4 class="fqwEMC"><!-- react-text: 60 -->120<!-- /react-text --><!-- react-text: 61 -->m2 •
+                            <!-- /react-text -->
+                            <!-- react-text: 62 -->
+                            150000<!-- /react-text --><!-- react-text: 63 -->¥ / J<!-- /react-text --></h4>
+                    </div>
+                </a>
+                <a class="ijJnIG" href="annonce"><img src="https://unsplash.it/200/300/?random" alt="" class="ceZQSL">
+                    <div>
+                        <h3 class="bKcxni"><!-- react-text: 68 -->1DK<!-- /react-text -->
+                            <!-- react-text: 69 -->
+                            •
+                            <!-- /react-text -->
+                            <!-- react-text: 70 -->
+                            Shikoku<!-- /react-text --></h3>
+                        <h4 class="fqwEMC"><!-- react-text: 72 -->120<!-- /react-text --><!-- react-text: 73 -->m2 •
+                            <!-- /react-text -->
+                            <!-- react-text: 74 -->
+                            150000<!-- /react-text --><!-- react-text: 75 -->¥ / J<!-- /react-text --></h4>
+                    </div>
+                </a>
+                <a class="ijJnIG" href="annonce"><img src="https://unsplash.it/200/300/?random" alt="" class="ceZQSL">
+                    <div>
+                        <h3 class="bKcxni"><!-- react-text: 80 -->1DK<!-- /react-text -->
+                            <!-- react-text: 81 -->
+                            •
+                            <!-- /react-text -->
+                            <!-- react-text: 82 -->
+                            Shikoku<!-- /react-text --></h3>
+                        <h4 class="fqwEMC"><!-- react-text: 84 -->120<!-- /react-text --><!-- react-text: 85 -->m2 •
+                            <!-- /react-text -->
+                            <!-- react-text: 86 -->
+                            150000<!-- /react-text --><!-- react-text: 87 -->¥ / J<!-- /react-text --></h4>
+                    </div>
+                </a>
+                <a class="ijJnIG" href="annonce"><img src="https://unsplash.it/200/300/?random" alt="" class="ceZQSL">
+                    <div>
+                        <h3 class="bKcxni"><!-- react-text: 92 -->1DK<!-- /react-text -->
+                            <!-- react-text: 93 -->
+                            •
+                            <!-- /react-text -->
+                            <!-- react-text: 94 -->
+                            Shikoku<!-- /react-text --></h3>
+                        <h4 class="fqwEMC"><!-- react-text: 96 -->120<!-- /react-text --><!-- react-text: 97 -->m2 •
+                            <!-- /react-text -->
+                            <!-- react-text: 98 -->
+                            150000<!-- /react-text --><!-- react-text: 99 -->¥ / J<!-- /react-text --></h4>
+                    </div>
+                </a>
+                <a class="ijJnIG" href="annonce"><img src="https://unsplash.it/200/300/?random" alt="" class="ceZQSL">
+                    <div>
+                        <h3 class="bKcxni"><!-- react-text: 104 -->1DK<!-- /react-text -->
+                            <!-- react-text: 105 -->
+                            •
+                            <!-- /react-text -->
+                            <!-- react-text: 106 -->
+                            Shikoku<!-- /react-text --></h3>
+                        <h4 class="fqwEMC"><!-- react-text: 108 -->120<!-- /react-text --><!-- react-text: 109 -->m2 •
+                            <!-- /react-text -->
+                            <!-- react-text: 110 -->
+                            150000<!-- /react-text --><!-- react-text: 111 -->¥ / J<!-- /react-text --></h4>
+                    </div>
+                </a>
+                <a class="ijJnIG" href="annonce"><img src="https://unsplash.it/200/300/?random" alt="" class="ceZQSL">
+                    <div>
+                        <h3 class="bKcxni"><!-- react-text: 116 -->1DK<!-- /react-text -->
+                            <!-- react-text: 117 -->
+                            •
+                            <!-- /react-text -->
+                            <!-- react-text: 118 -->
+                            Shikoku<!-- /react-text --></h3>
+                        <h4 class="fqwEMC"><!-- react-text: 120 -->120<!-- /react-text --><!-- react-text: 121 -->m2 •
+                            <!-- /react-text -->
+                            <!-- react-text: 122 -->
+                            150000<!-- /react-text --><!-- react-text: 123 -->¥ / J<!-- /react-text --></h4>
+                    </div>
+                </a>
+                <a class="ijJnIG" href="annonce"><img src="https://unsplash.it/200/300/?random" alt="" class="ceZQSL">
+                    <div>
+                        <h3 class="bKcxni"><!-- react-text: 128 -->1DK<!-- /react-text -->
+                            <!-- react-text: 129 -->
+                            •
+                            <!-- /react-text -->
+                            <!-- react-text: 130 -->
+                            Shikoku<!-- /react-text --></h3>
+                        <h4 class="fqwEMC"><!-- react-text: 132 -->120<!-- /react-text --><!-- react-text: 133 -->m2 •
+                            <!-- /react-text -->
+                            <!-- react-text: 134 -->
+                            150000<!-- /react-text --><!-- react-text: 135 -->¥ / J<!-- /react-text --></h4>
+                    </div>
+                </a>
+                <a class="ijJnIG" href="annonce"><img src="https://unsplash.it/200/300/?random" alt="" class="ceZQSL">
+                    <div>
+                        <h3 class="bKcxni"><!-- react-text: 140 -->1DK<!-- /react-text -->
+                            <!-- react-text: 141 -->
+                            •
+                            <!-- /react-text -->
+                            <!-- react-text: 142 -->
+                            Shikoku<!-- /react-text --></h3>
+                        <h4 class="fqwEMC"><!-- react-text: 144 -->120<!-- /react-text --><!-- react-text: 145 -->m2 •
+                            <!-- /react-text -->
+                            <!-- react-text: 146 -->
+                            150000<!-- /react-text --><!-- react-text: 147 -->¥ / J<!-- /react-text --></h4>
+                    </div>
+                </a>
+                <a class="ijJnIG" href="annonce"><img src="https://unsplash.it/200/300/?random" alt="" class="ceZQSL">
+                    <div>
+                        <h3 class="bKcxni"><!-- react-text: 152 -->1DK<!-- /react-text -->
+                            <!-- react-text: 153 -->
+                            •
+                            <!-- /react-text -->
+                            <!-- react-text: 154 -->
+                            Shikoku<!-- /react-text --></h3>
+                        <h4 class="fqwEMC"><!-- react-text: 156 -->120<!-- /react-text --><!-- react-text: 157 -->m2 •
+                            <!-- /react-text -->
+                            <!-- react-text: 158 -->
+                            150000<!-- /react-text --><!-- react-text: 159 -->¥ / J<!-- /react-text --></h4>
+                    </div>
+                </a>
+                <a class="ijJnIG" href="annonce"><img src="https://unsplash.it/200/300/?random" alt="" class="ceZQSL">
+                    <div>
+                        <h3 class="bKcxni"><!-- react-text: 164 -->1DK<!-- /react-text -->
+                            <!-- react-text: 165 -->
+                            •
+                            <!-- /react-text -->
+                            <!-- react-text: 166 -->
+                            Shikoku<!-- /react-text --></h3>
+                        <h4 class="fqwEMC"><!-- react-text: 168 -->120<!-- /react-text --><!-- react-text: 169 -->m2 •
+                            <!-- /react-text -->
+                            <!-- react-text: 170 -->
+                            150000<!-- /react-text --><!-- react-text: 171 -->¥ / J<!-- /react-text --></h4>
+                    </div>
+                </a>
+            </div>
+            <div class="OnIBE"><img src="https://unsplash.it/600/200/?random" alt=""><img src="https://unsplash.it/600/200/?random" alt=""><img src="https://unsplash.it/600/200/?random" alt=""></div>
+            <h3 style="text-align: center;">Annonces du moment</h3>
+            <div class="hiTrwk">
+                <a class="ihqBzd" href="annonce">
+                    <div color="#1B54FD" class="blfiMe">Spécial</div>
+                    <div class="imgwsA"></div>
+                    <h3 class="bRehpm"><!-- react-text: 182 -->1DK<!-- /react-text -->
+                        <!-- react-text: 183 -->
+                        <!-- /react-text -->
+                        <!-- react-text: 184 -->
+                        Shikoku<!-- /react-text --></h3>
+                    <h4 class="kdxSdW"><!-- react-text: 186 -->120<!-- /react-text -->
+                        <!-- react-text: 187 -->
+                        <!-- /react-text -->
+                        <!-- react-text: 188 -->
+                        150000<!-- /react-text --></h4>
+                    <div class="enoGdw">
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#D8D8D8" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#D8D8D8" fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </a>
+                <a class="ihqBzd" href="annonce">
+                    <div color="#1B54FD" class="blfiMe">Spécial</div>
+                    <div class="imgwsA"></div>
+                    <h3 class="bRehpm"><!-- react-text: 204 -->1DK<!-- /react-text -->
+                        <!-- react-text: 205 -->
+                        <!-- /react-text -->
+                        <!-- react-text: 206 -->
+                        Shikoku<!-- /react-text --></h3>
+                    <h4 class="kdxSdW"><!-- react-text: 208 -->120<!-- /react-text -->
+                        <!-- react-text: 209 -->
+                        <!-- /react-text -->
+                        <!-- react-text: 210 -->
+                        150000<!-- /react-text --></h4>
+                    <div class="enoGdw">
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#D8D8D8" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#D8D8D8" fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </a>
+                <a class="ihqBzd" href="annonce">
+                    <div color="#1B54FD" class="blfiMe">Spécial</div>
+                    <div class="imgwsA"></div>
+                    <h3 class="bRehpm"><!-- react-text: 226 -->1DK<!-- /react-text -->
+                        <!-- react-text: 227 -->
+                        <!-- /react-text -->
+                        <!-- react-text: 228 -->
+                        Shikoku<!-- /react-text --></h3>
+                    <h4 class="kdxSdW"><!-- react-text: 230 -->120<!-- /react-text -->
+                        <!-- react-text: 231 -->
+                        <!-- /react-text -->
+                        <!-- react-text: 232 -->
+                        150000<!-- /react-text --></h4>
+                    <div class="enoGdw">
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#D8D8D8" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#D8D8D8" fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </a>
+                <a class="ihqBzd" href="annonce">
+                    <div color="#1B54FD" class="blfiMe">Spécial</div>
+                    <div class="imgwsA"></div>
+                    <h3 class="bRehpm"><!-- react-text: 248 -->1DK<!-- /react-text -->
+                        <!-- react-text: 249 -->
+                        <!-- /react-text -->
+                        <!-- react-text: 250 -->
+                        Shikoku<!-- /react-text --></h3>
+                    <h4 class="kdxSdW"><!-- react-text: 252 -->120<!-- /react-text -->
+                        <!-- react-text: 253 -->
+                        <!-- /react-text -->
+                        <!-- react-text: 254 -->
+                        150000<!-- /react-text --></h4>
+                    <div class="enoGdw">
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#D8D8D8" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#D8D8D8" fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </a>
+                <a class="ihqBzd" href="annonce">
+                    <div color="#1B54FD" class="blfiMe">Spécial</div>
+                    <div class="imgwsA"></div>
+                    <h3 class="bRehpm"><!-- react-text: 270 -->1DK<!-- /react-text -->
+                        <!-- react-text: 271 -->
+                        <!-- /react-text -->
+                        <!-- react-text: 272 -->
+                        Shikoku<!-- /react-text --></h3>
+                    <h4 class="kdxSdW"><!-- react-text: 274 -->120<!-- /react-text -->
+                        <!-- react-text: 275 -->
+                        <!-- /react-text -->
+                        <!-- react-text: 276 -->
+                        150000<!-- /react-text --></h4>
+                    <div class="enoGdw">
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#D8D8D8" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#D8D8D8" fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </a>
+                <a class="ihqBzd" href="annonce">
+                    <div color="#1B54FD" class="blfiMe">Spécial</div>
+                    <div class="imgwsA"></div>
+                    <h3 class="bRehpm"><!-- react-text: 292 -->1DK<!-- /react-text -->
+                        <!-- react-text: 293 -->
+                        <!-- /react-text -->
+                        <!-- react-text: 294 -->
+                        Shikoku<!-- /react-text --></h3>
+                    <h4 class="kdxSdW"><!-- react-text: 296 -->120<!-- /react-text -->
+                        <!-- react-text: 297 -->
+                        <!-- /react-text -->
+                        <!-- react-text: 298 -->
+                        150000<!-- /react-text --></h4>
+                    <div class="enoGdw">
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#1B54FD" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#D8D8D8" fill-rule="evenodd"></path>
+                        </svg>
+                        <svg viewBox="0 0 16 15" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8 12l-4.702 2.472.898-5.236L.392 5.528l5.257-.764L8 0l2.35 4.764 5.258.764-3.804 3.708.898 5.236" fill="#D8D8D8" fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </div>"
+    </body>
+{% endblock %}
