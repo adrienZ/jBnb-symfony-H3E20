@@ -5,10 +5,13 @@
 <div class="login">
     <h1 class="profile_header">Mon Profil</h1>
     <h2 class="profile_subtitle">Mes annonces</h2>
+    <div class="profile_announces_new btn">
+        <a href="{{ path('rooms_new') }}">Ajouter une annonce</a>
+    </div>
     <div class="profile_announces">
       {% for room in rooms %}
       <div class="profile_announces_one">
-        <a href="{{ path('rooms_show', { 'id': room.id }) }}">
+        <a href="{{ path('room_page_product', { 'roomId': room.id }) }}">
             <img class="profile_announces_one_image" src="{{ asset('images/rooms/' ~(room.imageName)) }}">
           </a>
         <p class="profile_announces_one_information profile_announces_one_title">
@@ -35,9 +38,7 @@
         </div>
       </div>
       {% endfor %}
-      <div class="profile_announces_new btn">
-          <a href="{{ path('rooms_new') }}">Ajouter une annonce</a>
-      </div>
+
 
 
     </div>

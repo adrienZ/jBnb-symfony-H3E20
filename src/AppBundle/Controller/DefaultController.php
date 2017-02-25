@@ -45,6 +45,7 @@ class DefaultController extends Controller
 
       // get room
       $room = $em->find($roomId);
+  
       if (!$room) {
           throw new NotFoundHttpException("Erreur 404");
       }

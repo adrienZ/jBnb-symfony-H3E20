@@ -265,41 +265,6 @@ class HomeScene extends Component {
             </g>
           </svg>
         </InlineContainer>
-        <h3 style={{textAlign: 'center'}}>Nouvelles annonces</h3>
-        <NewFlats>
-          {data.new.map((flat, index) => (
-            <Small
-              key={index}
-              rooms={flat.rooms}
-              location={flat.location}
-              size={flat.size}
-              price={flat.price}
-              link={flat.link}
-              img={flat.img}
-            />
-          ))}
-        </NewFlats>
-        <HorizontalAds>
-          { data.horizontalAds.map((ad, index) => (
-            <img key={index} src={ad.img} alt=""/>
-          ))}
-        </HorizontalAds>
-        <h3 style={{textAlign: 'center'}}>Annonces du moment</h3>
-        <Trending>
-          { data.trending.map((offer, index) => (
-            <Card
-              key={index}
-              color={color}
-              rooms={offer.rooms}
-              location={offer.location}
-              size={offer.size}
-              price={offer.price}
-              type={offer.type}
-              rating={offer.rating}
-              img={offer.img}
-              link={offer.link}/>
-          ))}
-        </Trending>
       </Container>
     )
   }

@@ -26,9 +26,9 @@ class RoomsController extends Controller
         if(!isset($user)){
           return $this->redirectToRoute('fos_user_security_login');
         }
-
         $em = $this->getDoctrine()->getManager();
-        $rooms = $em->getRepository('AppBundle:Rooms')->findAll();
+
+        $rooms = $em->getRepository('AppBundle:Rooms')->findBy(["id" => $user->getId()]);
 
         return $this->render('rooms/index.html.twig', array(
             'rooms' => $rooms,
@@ -47,7 +47,7 @@ class RoomsController extends Controller
         if(!isset($user)){
           return $this->redirectToRoute('fos_user_security_login');
         }
-
+        
         $room = new Rooms();
         $form = $this->createForm('AppBundle\Form\RoomsType', $room);
         $form->handleRequest($request);
@@ -94,7 +94,6 @@ class RoomsController extends Controller
      */
     public function editAction(Request $request, Rooms $room)
     {
-
         $user = $this->getUser();
         if(!isset($user)){
           return $this->redirectToRoute('fos_user_security_login');
