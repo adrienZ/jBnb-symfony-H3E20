@@ -11,14 +11,18 @@ class RoomsAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper->add('title', 'text')
-
+                  ->add('imageFile', 'file')
                    ->add('localisation', 'textarea')
                    ->add('price', 'number')
                    ->add('surface', 'number')
                    ->add('equipements', 'textarea')
                    ->add('description', 'textarea')
-                   ->add('ldk', 'sonata_type_model_hidden')
-                   ->add('statut', 'textarea')
+                   ->add('lDK')
+                   ->add('statut', 'text')
+                   ->add('currency')
+                   ->add('type')
+                   ->add('host')
+
 
                    ;
 
@@ -36,15 +40,15 @@ class RoomsAdmin extends AbstractAdmin
     {
         $listMapper->addIdentifier('title')
                    ->addIdentifier('LDK')
-                   ->addIdentifier('host_id')
+                   ->addIdentifier('host')
                    ->addIdentifier('localisation')
                    ->addIdentifier('price')
                    ->addIdentifier('surface')
                    ->addIdentifier('equipements')
                    ->addIdentifier('description')
-                   ->addIdentifier('type_id')
+                   ->addIdentifier('type')
                    ->addIdentifier('statut')
-                   ->addIdentifier('currency_id')
+                   ->addIdentifier('currency')
         ;
     }
 }

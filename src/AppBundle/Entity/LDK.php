@@ -21,15 +21,6 @@ class LDK
      */
     private $id;
 
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getSymbole()
-    {
-        return $this->symbole;
-    }
 
     /**
      * @var string

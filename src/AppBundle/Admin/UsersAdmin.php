@@ -23,6 +23,7 @@ class UsersAdmin extends AbstractAdmin
                    )
                    ->add('paypalAccount','text')
                    ->add('roles')
+                   ->add('is_host','number')
 
                    ;
 
